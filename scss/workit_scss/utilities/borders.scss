@@ -1,0 +1,10 @@
+.b { border: 1px dashed $red; }
+.b-orange { border: 1px solid $orange; }
+.b-blue { border: 1px solid $blue; }
+.b-pink { border: 1px solid $pink; }
+.bg-white-05 { background-color: rgba(255,255,255,0.5); }
+.bg-black-05 { background-color: rgba(0,0,0,0.5); }
+
+.btn-border-crcle {
+	border-radius: 1rem;
+}

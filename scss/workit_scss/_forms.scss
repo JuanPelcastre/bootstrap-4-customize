@@ -1,0 +1,12 @@
+.form-control {
+    padding: 0.5rem 0.75rem;
+    font-size: .875rem;
+    color: #727374;
+    border: 1px solid #282828;
+    &::placeholder {
+        color: #727374;
+    }
+}
+.form-text {
+    margin-top: 0.15rem;
+}

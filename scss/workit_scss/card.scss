@@ -1,0 +1,68 @@
+.form__search-job {
+  background: #d1d4d4;
+  width: 83.6vw;
+  padding: 2rem 1.2rem;
+  border-radius: 1rem; 
+  @media (max-width: 991px) {
+    background: rgba(209, 212, 212, 0.9); } /* de 0.5 a 0.9 lo cambie */
+  .search-job__input {
+	padding-top: .688rem;
+	padding-bottom: .688rem; }
+  .btn {
+    bottom: 0;
+  	@media (max-width: 991px) {
+      margin-top: 1.5rem; 
+    } 
+  }
+  .form-group {
+    margin-bottom: 0; 
+  }
+
+}
+  
+// block opportunity
+.opportunity__icons > .opportunity__icons-item > .fa-1x {
+    color: white;
+    font-size: 1.25rem;
+    &:hover {
+    	// background-color: ;
+    }
+    @media (min-width: 768px) { 
+		color: #777;
+    }	
+}
+.opportunity__icons {
+	display: flex;
+	justify-content: center;
+	span {
+		padding: .5rem 2rem;
+		background-color: $blue;
+		// color: white !important;
+	}
+	@media (min-width: 768px) {
+		position: absolute;
+		top: 1.5rem;
+		right: 1.25rem;
+		span {
+			padding: .5rem 0;
+			background-color: transparent;
+			&.fa-external-link {
+				margin-left: 1rem!important;
+				
+			}
+		}
+	}
+}
+.opportunity__published {
+	color: $blue;
+	text-align: center; 
+	@media (min-width: 768px) {
+		position: absolute;
+		right: 1.25rem;
+		bottom: 1.5rem; 
+	}
+}
+.oportunidad a.h5:hover { // ????? Revisar si se utiliza
+	text-decoration: underline;
+}
+

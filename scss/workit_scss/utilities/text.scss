@@ -1,0 +1,11 @@
+.text-black { color: #282828 !important; }
+.text-yellow-w{ color: $yellow-w !important; }
+.text-pink-w { color: $pink-w !important; }
+.text-orange-w { color: $orange-w !important; }
+
+.underline { text-decoration: underline; }
+
+.form__paragraph {
+	font-size: .75rem;
+	color: #727374;
+}

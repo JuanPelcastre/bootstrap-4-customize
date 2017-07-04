@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/bootstrap.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://file.myfontastic.com/oaZpPqkfnMctxdC4vSWmBY/icons.css" rel="stylesheet">
+</head>
+<body class="bg-black-w">
+	 <!-- Intro Header -->
+    <header class="intro">
+    	<nav class="navbar navbar-toggleable navbar-light">
+	      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="navbar-toggler-icon"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">
+	        <img src="http://lorempixel.com/400/200/sports/Dummy-Text/" alt="" width="150" height="60" class="">
+	      </a>
+	
+	      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="display: none;">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active">
+	            <a class="nav-link register lato" href="#">Empresas<span class="sr-only">(current)</span></a>
+	          </li>
+	          <li class="nav-item">
+	            <a class="nav-link register" href="#">Login</a>
+	          </li>
+	        </ul>
+	        <button class="btn btn-outline-primary text-uppercase rounded-0 my-2 my-sm-0 ml-3" type="button">Registro</button>
+	      </div>
+	    </nav>
+	    
+        <div class="intro-body">
+            <div class="container-fluid">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-8 align-">
+                      <h1 class="home-header__title text-center text-white"><b>Aquí está el trabajo de tus sueños</b>
+                      </h1>
+						<form ng-show="true" class="d-none">
+						  <div class="container-fluid d-flex justify-content-center">
+						      <div class="form__search-job block-center row">
+						        <div class="col-xs-12 col-lg-5">
+						          <h5 class="m-b-0"><b>Buscar trabajo como</b></h5>
+						          <div class="form-group">
+						            <label for="perfil">Título, puesto ó palabra clave</label>
+						            <input type="text" class="form-control search-job__input" id="perfil" placeholder="Desarrollador Java Jr.">
+						          </div>
+						        </div>
+						        <div class="col-xs-12 col-lg-5">
+						          <h5 class="m-b-0"><b>Ubicación</b></h5>
+						          <div class="form-group">
+						            <label for="ubicacion">Ingresa la ciudad donde buscas talento</label>
+						            <input type="text" class="form-control search-job__input" id="ubicacion" placeholder="Ciudad de México, México">
+						          </div>
+						        </div>
+						        <div class="col-xs-12 col-lg-2 container-btn d-flex align-items-end">
+						          <button id="buscar" type="submit" class="btn btn-primary btn-block rounded-0 bold">BUSCAR</button>
+						        </div>
+						      </div>
+						  </div>
+						</form>
+						<br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+    	<div class="row">
+    		<div class="col-12 col-md-3">
+    			<legend class="label-form">¿Quieres adjuntar tu CV?</legend>
+				<button class="btn btn-primary btn-block btn-x-circle">Tu CV</button>
+    		</div>
+    		<div class="col-12 col-md-3">
+    			<legend class="label-form">¿Quieres adjuntar portafolio?</legend>
+				<button class="btn btn-primary btn-block btn-x-circle">Subir Archivo</button>
+    		</div>
+    		<div class="col-12 col-md-3">
+    			<legend class="label-form">¿Quieres adjuntar tu CV?</legend>
+				<button class="btn btn-primary btn-block btn-x-circle">Tu CV</button>
+    		</div>
+    		<div class="col-12 col-md-3  d-flex align-items-center">
+    			<div class="form-check pt-3">
+				    <label class="form-check-label">
+				      <input type="checkbox" class="form-check-input">
+				      Deseo que mi foto aparesca en mi CV.
+				    </label>
+			  	</div>
+    		</div>
+    		<div class="col-12 col-md-3">
+			  <div class="form-group">
+			    <legend for="exampleInputEmail1">Título de tu CV</legend>
+			    <label for="exampleInputEmail1">Puesto actual ó al que aspiras</label>
+			    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+			  </div>
+    		</div>
+    		<div class="col-xs-12 col-md-6">
+				<p class="form__paragraph">Tip: Escribe el puesto que desempeñas actualmente o el que quisieras ocupar, éste será lo primero que verán los reclutadores al buscar talento.
+			</div>
+    	</div>
+    </div>
+
+<!-- inicio de userData -->
+<div class="text-center">
+	<h3 class="">Completa tu CV para comenzar a buscar oportunidades</h3>
+	<p>Prefiero <a>ir a mi perfil </a> y completar mi CV más tarde</p>
+</div>
+<ng-form name="uCtrl.userDataForm">
+	<div class="container"> <!-- container userdata -->
+		<div class="row">
+			<div class="col-8 col-xs-offset-1 col-lg-3">
+			 	<label class="label-form">Sube tu fotografía</label>
+				<label class="btn btn-primary btn-border-crcle">
+					<div class="d-flex">	 	
+					  <div class="flex-vm"><span class="fa fa-cloud-upload fa-2x" 		style="color: white;"></span>
+					  </div>
+					  <span class="text-white"><b>Subir archivo</b></span>
+				  </div>
+				    <input type="file" style="display: none;" fileread="candidate.profile.image" name="photoName" id="photoRead" accept=".jpeg,.jpg,.png">
+				</label>
+				<label class="label-form" ng-show="true"><i class="fa fa-file-image-o" aria-hidden="true"></i><i class="indent">{{photoName}}</i></label>
+				
+			</div>
+			<div class="col-xs-10 col-xs-offset-1 col-lg-3">
+			 	<label class="m-b-0 label-form">¿Quieres adjuntar tu CV?</label>
+			 	
+				<label class="btn btn-primary btn-round height width100 ptb0">
+					<div class="flex-sa">	 	
+					    <div class="flex-vm"><span class="fa fa-paperclip fa-2x" style="color: white;"></span></div>
+					    <span class="text-white"><b>Tu CV</b></span>
+				    </div>
+				    <input ng-click="some()" type="file" style="display: none;" fileread="candidate.profile.resumee.file" name="cvName" id="cvRead" accept=".pdf,.doc,.docx">
+				</label>
+				<label class="label-form" ng-show="true"><i class="fa fa-file-text-o" aria-hidden="true"></i><i class="indent">{{cvName}}</i></label>
+				
+			</div>
+			
+			<div class="col-xs-10 col-xs-offset-1 col-lg-3">
+			 	<label class="m-b-0 label-form">¿Quieres adjuntar tu portafolio?</label>
+			 	
+				<label class="btn btn-primary btn-round height width100 ptb0">
+					<div class="flex-sa">	 	
+					    <div class="flex-vm"><span class="fa fa-paperclip fa-2x" style="color: white;"></span></div>
+					    <span class="text-white"><b>Tu portafolio</b></span>
+				    </div>
+				    <input ng-click="some()" type="file" style="display: none;" fileread="candidate.profile.portfolio.file" name="portfolioName" id="portfolioRead" accept=".pdf">
+				</label>
+				<label class="label-form" ng-show="true"><i class="fa fa-briefcase" aria-hidden="true"></i><i class="indent">{{portfolioName}}</i></label>
+				
+			</div>
+			<div class="col-lg-12"></div>
+			
+			<div class="col-xs-12 col-lg-12">
+				<label class="label-group fancy-checkbox" style="padding-left:0;font-size: 1em;padding-top:5px;padding-bottom:25px;">
+					<input type="checkbox" value="" name="foto-in-cv" id="foto-in-cv" ng-model="candidate.profile.imageAvailability">
+					<i class="fa fa-fw fa-square-o unchecked"></i>
+		   			<i class="fa fa-fw fa-check-square-o checked"></i>
+					Deseo que mi foto aparezca en mi CV.
+				</label> 
+			</div>
+			<div class="col-xs-12 col-lg-3">
+				<legend class="label-group">Titulo de tu CV:</legend>
+				<label for="example-text-input" class="col-2 col-form-label label-form">Puesto actual o al que aspiras: <span class="fa fa-asterisk req-asterisk sup" aria-hidden="true"></span></label>
+				<input name="cvTitle" class="form-control" type="text" id="example-text-input"  
+					   ng-class="{'has-error': uCtrl.userDataForm.cvTitle.$valid == false && uCtrl.userDataForm.cvTitle.$touched == true}"
+					   ng-model="candidate.cvTitle" ng-pattern="/^[a-zA-Z_áéíóúñ\s]*$/" required>
+				<label class="text-error" ng-show="uCtrl.userDataForm.cvTitle.$valid == false && uCtrl.userDataForm.cvTitle.$touched == true">*Introduce título de CV</label>
+				<label class="text-error" ng-show="uCtrl.userDataForm.cvTitle.$error.pattern">*Sólo se permiten letras</label>
+			</div>
+			<div class="col-xs-12 col-lg-6">
+				<p class="l-h-1-2em p-3em">Tip: Escribe el puesto que desempeñas actualmente o el que quisieras ocupar, éste será lo primero que verán los reclutadores al buscar talento.
+			</div>
+			
+			
+			<div class="col-xs-12 col-md-12 label-group dp"><strong>Datos personales:</strong></div>
+			
+			<div class="col-xs-12 col-lg-3">
+				<label for="example-text-input" class="col-2 col-form-label label-form">Nombre(s) <span class="fa fa-asterisk req-asterisk sup" aria-hidden="true"></span></label>
+				<input name="name" class="form-control" type="text" id="example-text-input"  
+					   ng-class="{'has-error': uCtrl.userDataForm.name.$valid == false && uCtrl.userDataForm.name.$touched == true}"
+					   ng-model="candidate.name" ng-pattern="/^[a-zA-Z_áéíóúñ\s]*$/" required>
+				<label class="text-error" ng-show="uCtrl.userDataForm.name.$valid == false && uCtrl.userDataForm.name.$touched == true">*Introduce tu nombre</label>
+				<label class="text-error" ng-show="uCtrl.userDataForm.name.$error.pattern">*Sólo se permiten letras</label>
+			</div>
+			
+			<div class="col-xs-12 col-lg-3">
+				<label for="example-text-input" class="col-2 col-form-label  label-form">Apellidos <span class="fa fa-asterisk req-asterisk sup" aria-hidden="true"></span></label>
+				<input name="lastName" class="form-control" type="text" id="example-text-input" 
+					   ng-class="{'has-error': uCtrl.userDataForm.lastName.$valid == false && uCtrl.userDataForm.lastName.$touched == true}"
+					   ng-model="candidate.lastName" ng-pattern="/^[a-zA-Z_áéíóúñ\s]*$/" required>
+				<label class="text-error" ng-show="uCtrl.userDataForm.lastName.$valid == false && uCtrl.userDataForm.lastName.$touched == true">*Introduce tus apellidos</label>
+				<label class="text-error" ng-show="uCtrl.userDataForm.lastName.$error.pattern">*Sólo se permiten letras</label>
+			</div>
+			
+			<div class="col-xs-12 col-lg-3">
+				<label for="example-date-input" class=" col-form-label  label-form">Fecha de nacimiento <span class="fa fa-asterisk req-asterisk sup" aria-hidden="true"></span></label>
+				<input name="date" class="form-control" type="date" value="1997-08-19" id="example-date-input" 
+					   ng-class="{'has-error': uCtrl.userDataForm.date.$valid == false && uCtrl.userDataForm.date.$touched == true}"		
+					   ng-model="candidate.birthDate" required>
+				<label class="text-error" ng-show="uCtrl.userDataForm.date.$valid == false && uCtrl.userDataForm.date.$touched == true">*Introduce tu fecha de nacimiento</label>
+			</div>	
+			
+			<div class="col-xs-12 col-lg-3">
+				<div class="box">
+					<label class=" label-form">Género</label>
+					<div class="generos b">
+					
+						<div class="genero b" ng-class="{'genero-active': candidate.gender === 'male'}" ng-click="candidate.gender = 'male'">
+							<i class="fa fa-male fa-lg black"></i> 
+						</div>
+						<div class="genero b" ng-class="{'genero-active': candidate.gender === 'female'}" ng-click="candidate.gender = 'female'">
+							<i class="fa fa-female fa-lg black"></i>
+						</div>
+					</div>
+					
+				</div>	
+			</div>
+			
+			<div class="col-lg-12"></div>
+			
+			<div class="col-xs-12 col-lg-3">
+				<label for="example-text-input" class="col-2 col-form-label label-form">Código postal <span class="fa fa-asterisk req-asterisk sup" aria-hidden="true"></span></label>
+				<input class="form-control" type="number" id="example-text-input" name="zipCode" pattern="[0-9]{3}"
+					   ng-class="{'has-error': uCtrl.userDataForm.zipCode.$valid == false && uCtrl.userDataForm.zipCode.$touched == true}"
+					   ng-model="candidate.address.zipCode" ng-pattern="/^[0-9]{5}$/" required>
+				<label class="text-error" ng-show="uCtrl.userDataForm.zipCode.$valid == false && uCtrl.userDataForm.zipCode.$touched == true">*Introduce tu código postal</label>
+				<label class="text-error" ng-show="uCtrl.userDataForm.zipCode.$error.pattern">*Sólo deben ser 5 números exactos</label>
+			</div>	
+			
+			<div class="col-xs-12 col-lg-3">
+				<label for="example-text-input" class="col-2 col-form-label label-form">Correo electrónico  <span class="fa fa-asterisk req-asterisk sup" aria-hidden="true"></span></label>
+				<input ng-init="candidate.mail = '${mail}'" class="form-control" type="email" id="example-text-input" ng-model="candidate.email" required>
+			</div>
+				
+			<div class="col-xs-12 col-lg-3">
+				<label for="example-text-input" class="col-2 col-form-label label-form">Teléfono Celular</label>
+				<input class="form-control" name="cellPhone" type="number" id="example-text-input" ng-model="candidate.contact.phones[0].number" ng-pattern="/^[0-9]{10}$/">
+				<label class="text-error" ng-show="uCtrl.userDataForm.cellPhone.$error.pattern">*Sólo deben ser 10 números exactos</label>
+			</div>	
+			
+			<div class="col-xs-12 col-lg-3">
+				<label for="example-text-input" class="col-2 col-form-label label-form">Teléfono Casa</label>
+				<input class="form-control" name="localPhone" type="number" id="example-text-input" ng-model="candidate.contact.phones[1].number" ng-pattern="/^[0-9]{8,12}$/">
+				<label class="text-error" ng-show="uCtrl.userDataForm.localPhone.$error.pattern">*Pueden ser 8 números mínimo y 12 máximo</label>
+			</div>
+			
+			<div class="col-lg-12"></div>
+			
+			<div class="col-xs-12 col-lg-3 label-group" style="font-size: 13px;">Redes sociales:</div>
+			<div class="col-xs-12 col-lg-3 col-lg-offset-6 label-group" style="font-size: 13px;">¿Quieres compartir tu repositorio?</div>
+			
+			<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-6 col-lg-3">
+				<button class="btn btn-round btn-primary height width100 fb ptb0" ng-show=false>
+					<div class="flex-sa">
+						<div class="flex-vm">
+							<span class="fa-stack fa-lg" style="color: font-size: 1em;">
+							  <i class="fa fa-circle-thin fa-stack-2x"></i>
+							  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+							</span>
+						</div>
+						<span><b>Conectar</b></span>
+					</div>
+				</button>
+				
+				
+			</div>
+			<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-6 col-lg-3">
+				<button class="btn btn-round btn-primary height width100 fb ptb0">
+					<div class="flex-sa">
+						<div class="flex-vm">
+							<span class="fa-stack fa-lg" style="color: font-size: 1em;">
+							  <i class="fa fa-circle-thin fa-stack-2x"></i>
+							  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+							</span>
+						</div>
+						<span><b>Conectar</b></span>
+					</div>
+				</button>
+			</div>
+			<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-6 col-lg-3">
+				<button class="btn btn-round btn-primary height width100 fb ptb0">
+					<div class="flex-sa">
+						<div class="flex-vm">
+							<span class="fa-stack fa-lg" style="color: font-size: 1em;">
+							  <i class="fa fa-circle-thin fa-stack-2x"></i>
+							  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+							</span>
+						</div>
+						<span><b>Conectar</b></span>
+					</div>
+				</button>
+			</div>
+			<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-6 col-lg-3">
+				<button class="btn btn-round btn-primary height width100 fb ptb0">
+					<div class="flex-sa">
+						<div class="flex-vm">
+							<span class="fa-stack fa-lg" style="color: font-size: 1em;">
+							  <i class="fa fa-circle-thin fa-stack-2x"></i>
+							  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+							</span>
+						</div>
+						<span><b>Conectar</b></span>
+					</div>
+				</button>
+			</div>
+		</div>
+	</div>
+</ng-form>
+
+<div class="col-md-12"></div>
+
+<div class="mt100 mb100 btn-sqrt">
+	
+	<button type="button" class="btn btn-primary btn-lg col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-1" style="border-radius: 0px" 
+			id="btn-save" ng-click="onPartialSave()" ng-disabled="uCtrl.userDataForm.$valid != true">Guardar</button>
+ 	
+ 	<button type="button" class="btn btn-primary btn-lg col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-2" style="border-radius: 0px" 
+ 			id="btn-continue" ng-click="saveContinue(uCtrl.userDataForm, 'career')" ng-disabled="uCtrl.userDataForm.$valid != true">Continuar</button>
+</div>					
+<!-- fin de userData -->
+		    
+
+	<nav class="d-none navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Navbar</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+	
+	<div class="container bg-gray-light-w">
+		<div class="row bg-white-0 justify-content-center">
+			<div class="col col-md-12 col-lg-9">
+				<!-- start block {card opportunity} -->
+				<div class="card">
+				  <div class="card-block">
+				    <div class="media">
+					  <img class="d-flex align-self-center rounded-circle img-square mr-3 shadow" src="http://lorempixel.com/400/200/" alt="Generic placeholder image">
+					  <div class="media-body">
+					    <h5 class="mt-0 text-center text-md-left">Center-aligned media</h5>
+					    <div class="row">
+					    	<div class="col-12 col-md-6 text-center text-md-left">
+					    		<h6 class=""><i class="fa fa-building mr-2" aria-hidden="true"></i>Hewlett-Packard de mx.</h6>
+							    <h6><small class="mtb0"><i class="fa fa-money mr-2" aria-hidden="true"></i>$30,000.00-$40,000.00</small></h6>
+					    	</div>
+					    	<div class="col-12 col-md-6 text-center text-md-left">
+					    		<h6 class=""><i class="fa fa-map-marker mr-2" aria-hidden="true"></i>CDMX</h6>
+						        <h6><small class=""><i class="fa fa-clock-o mr-2" aria-hidden="true"></i>Tiempo completo</small></h6>
+					    	</div>
+					    </div>
+					    <h6 class="opportunity__tech text-center text-md-left"><strong>#java #empresa #cdmx</strong></h6>
+					  </div>
+					</div>
+					<!-- icons and indicadores -->
+				    <h6 class="opportunity__published"><small>Publicado hace 3 días</small></h6>
+					<div class="opportunity__icons">
+				    	<div class="opportunity__icons-item">
+				    		<span class="fa fa-external-link fa-1x mr-3" aria-hidden="true"></span>
+				    	</div>
+				        <div class="opportunity__icons-item">
+				        	<span class="fa fa-heart-o fa-1x" aria-hidden="true"></span>
+				        </div>
+				    </div><!-- end opportunity__icons -->
+				  </div>
+				</div><!-- end block {card opportunity} -->
+			</div>
+		</div>	
+	</div>
+	
+	<div class="card border">
+		
+	</div>
+	<div class="container">
+		<div class="form-group">
+			<legend>Datos</legend>
+	    <label for="exampleInputEmail1">Email address</label>
+	    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+	    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+	  </div>
+		<div class="form-check">
+	    <label class="form-check-label">
+	      <input type="checkbox" class="form-check-input">
+	      Check me out
+	    </label>
+	  </div>
+	    
+	  <div class="form-check">
+	    <legend class="col-form-legend">
+	      <input type="checkbox" class="form-check-input">
+	      Check me out
+	    </legend>
+	  </div>
+	</div>
+	<footer class="footer">
+      <!-- primera parte de footer background azul -->
+      <div class="bg-primary text-white">
+        <div class="container-footer-bg-blue">          
+          <div class="row" >
+            <div class="col-sm-6 col-lg-3 text-center text-md-right text-lg-left">
+              <a href="javascript:;" class="h5"><strong><ins>WorkIT</ins></strong></a>
+              <h6><small>Blog</small></h6>
+              <h6><small>Preguntas frecuentes</small></h6>
+              <h6><small>Contacto</small></h6>
+            </div>
+            <div class="col-sm-6 col-lg-3 text-center text-md-left">
+              <a href="javascript:;" class="h5 mb-2"><strong><ins>Empresa</ins></strong></a>
+              <h6><small>Planes</small></h6>
+              <h6><small>Registra una oportunidad</small></h6>
+            </div>
+            <div class="col-sm-6 col-lg-3 text-center text-md-right text-lg-left">
+              <a href="javascript:;" class="h5"><strong><ins>Talento</ins></strong></a>
+              <h6><small>Encuentra oportunidades</small></h6>
+              <h6><small>Sube tu CV</small></h6>
+            </div>
+            <div class="col-sm-6 col-lg-3 text-center text-md-left">
+              <h6><strong><small>Suscríbete al newsletter</small></strong></h6>
+              <form action="">
+                <input placeholder="Ingresa tu e-mail">
+                <br>
+                <button type="submit" class="btn btn-outline-secondary rounded-0 mt-3 px-5">Enviar</button>
+              </form>
+            </div>                
+          </div> <!-- end row menu-foot -->
+        </div> <!-- end foot-1 -->
+      </div> <!-- end bg-primary  -->
+      <!-- segunda parte de footer background black -->
+      <div class="bg-black text-white px-4">
+        <div class="container-footer-bg-inverse text-center block-center">
+          <div class="row d-flex justify-content-center">
+            <div class="col-5 text-right">
+              <img src="./assets/images/app-store-badge.svg" width="110">
+            </div>
+            <div class="col-5 text-left">
+              <img src="./assets/images/google-play-badge.svg" width="110">
+            </div>
+          </div>          
+          <div class="">
+            <ul class="list-inline text-center mt-3 mb-3 d-flex justify-content-center">
+              <li>
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x text-white"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse text-black"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x text-white"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse text-black"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x text-white"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse text-black"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <h6 class="text-center"><small>WorkIT, todos los derechos reservados, 2017 | 
+              <br class="hidden-sm-up">
+              <a href="javascript:;" class="text-white"><ins>Acuerdo de privacidad</ins></a></small>
+            </h6>
+          </div>
+        </div>
+      </div>
+    </footer>
+	
+</body>
+</html>

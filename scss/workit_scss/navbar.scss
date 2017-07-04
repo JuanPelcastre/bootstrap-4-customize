@@ -1,0 +1,53 @@
+.navbar {
+  border-bottom: 10px solid #f8255e; 
+  padding: 1.375rem 2rem;
+  .navbar-brand, .navbar__user-img {
+    width: 3.75rem;
+    height: 3.75rem; 
+  }  
+}
+.navbar-light .navbar-nav .nav-link {
+  text-transform: uppercase;
+  color: black;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-weight: bold;
+  transition: all 0.4s; 
+  &:hover {
+  	text-decoration: none;
+    padding-top: 0;
+    padding-bottom: 0; 
+  }
+  .fa-2x {
+    font-size: 1.5rem; 
+  }
+}
+.navbar-light .navbar-nav .nav-link.register:hover {
+  /*padding-top: 0;
+  padding-bottom: 0;*/
+  padding: 0;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-bottom: 3px solid #2b75e0; 
+}
+.navbar-toggleable .navbar-nav {
+	@media (min-width: 576px) {
+        flex-direction: row;
+        align-items: center; 
+    } 
+}
+.navbar-toggleable-md .navbar-nav {
+   	@media (min-width: 992px) {
+        flex-direction: row;
+        align-items: center; 
+    }
+    .nav-link {
+    	@media (min-width: 992px) {
+	    	padding-right: 1rem;
+	    	padding-left: 1rem; 
+		  } 
+    } 
+}
+
+/* ??? */
+.hidden { visibility: hidden; }	

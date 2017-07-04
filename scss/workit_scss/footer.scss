@@ -1,0 +1,11 @@
+.footer {
+  width: 100%; }
+.footer .container-footer-bg-blue {
+  padding: 2.8125rem 8.125rem 4.375rem 8.125rem; }
+  @media (max-width: 767px) {
+    .footer .container-footer-bg-blue {
+      padding: 1rem 2rem 1rem 2rem; } }
+
+.footer .container-footer-bg-inverse {
+  padding-top: 1.5625rem;
+  padding-bottom: 2rem; }

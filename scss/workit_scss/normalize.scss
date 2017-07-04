@@ -1,0 +1,25 @@
+// _normalize.scss
+html { font-family: 'Lato', sans-serif; }
+
+button,
+input,
+optgroup,
+select,
+textarea { font-family: 'Lato', sans-serif; }
+
+a:focus, a:hover { // ??? Revisar si se ocupa
+  color: #fff;
+  text-decoration: underline;
+  font-weight: normal; 
+}
+
+legend {
+	font-size: .875rem;
+	font-weight: bold;	
+  margin-bottom: 0
+}
+
+label { //	_reboot
+	font-size: .875rem;
+	margin-bottom: .1rem;
+}
