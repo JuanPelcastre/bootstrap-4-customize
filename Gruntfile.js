@@ -196,6 +196,20 @@ module.exports = function (grunt) {
         tasks: ['dist-css', 'docs']
       }
     },
+    // workit: {
+    //   src: {
+    //     files: '<%= concat.workit.src %>',
+    //     tasks: ['babel:dev']
+    //   },
+    //   sass: {
+    //     files: 'scss/workit_scss/.scss',
+    //     tasks: ['dist-css', 'docs']
+    //   },
+    //   docs: {
+    //     files: 'docs/assets/scss/**/*.scss',
+    //     tasks: ['dist-css', 'docs']
+    //   }
+    // },
 
     'saucelabs-qunit': {
       all: {
