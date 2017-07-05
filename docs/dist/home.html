@@ -12,12 +12,12 @@
 <body class="bg-black-w">
 	 <!-- Intro Header -->
     <header class="intro">
-    	<nav class="navbar navbar-toggleable navbar-light">
+    	<nav class="navbar navbar-toggleable navbar-light fixed-top bg-white">
 	      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="navbar-toggler-icon"></span>
 	      </button>
-	      <a class="navbar-brand" href="#">
-	        <img src="http://lorempixel.com/400/200/sports/Dummy-Text/" alt="" width="150" height="60" class="">
+	      <a class="navbar-brand py-0" href="#">
+	        <img src="images/workit_logo.svg" alt="" width="145" height="55" class="">
 	      </a>
 	
 	      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="display: none;">
@@ -85,244 +85,153 @@
     		</div>
     		<div class="col-12 col-md-3  d-flex align-items-center">
     			<div class="form-check pt-3">
-				    <label class="form-check-label">
-				      <input type="checkbox" class="form-check-input">
-				      Deseo que mi foto aparesca en mi CV.
-				    </label>
+				    <label class="fancy-checkbox">
+							<input type="checkbox" name="foto-in-cv" id="foto-in-cv" 
+							ng-model="candidate.profile.imageAvailability">
+							<i class="fa fa-fw fa-square-o unchecked"></i>
+				   		<i class="fa fa-fw fa-check-square-o checked"></i>
+							Deseo que mi foto aparezca en mi CV.
+						</label> 
 			  	</div>
     		</div>
-    		<div class="col-12 col-md-3">
-			  <div class="form-group">
-			    <legend for="exampleInputEmail1">Título de tu CV</legend>
-			    <label for="exampleInputEmail1">Puesto actual ó al que aspiras</label>
-			    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-			  </div>
-    		</div>
-    		<div class="col-xs-12 col-md-6">
-				<p class="form__paragraph">Tip: Escribe el puesto que desempeñas actualmente o el que quisieras ocupar, éste será lo primero que verán los reclutadores al buscar talento.
-			</div>
-    	</div>
-    </div>
-
-<!-- inicio de userData -->
-<div class="text-center">
-	<h3 class="">Completa tu CV para comenzar a buscar oportunidades</h3>
-	<p>Prefiero <a>ir a mi perfil </a> y completar mi CV más tarde</p>
-</div>
-<ng-form name="uCtrl.userDataForm">
-	<div class="container"> <!-- container userdata -->
-		<div class="row">
-			<div class="col-8 col-xs-offset-1 col-lg-3">
-			 	<label class="label-form">Sube tu fotografía</label>
-				<label class="btn btn-primary btn-border-crcle">
-					<div class="d-flex">	 	
-					  <div class="flex-vm"><span class="fa fa-cloud-upload fa-2x" 		style="color: white;"></span>
-					  </div>
-					  <span class="text-white"><b>Subir archivo</b></span>
+				<legend for="exampleInputEmail1" class="pl-3">Título de tu CV</legend>
+	    		<div class="col-12 col-md-3">
+				  <div class="form-group">
+				    <label for="exampleInputEmail1">Puesto actual ó al que aspiras</label>
+				    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 				  </div>
-				    <input type="file" style="display: none;" fileread="candidate.profile.image" name="photoName" id="photoRead" accept=".jpeg,.jpg,.png">
-				</label>
-				<label class="label-form" ng-show="true"><i class="fa fa-file-image-o" aria-hidden="true"></i><i class="indent">{{photoName}}</i></label>
-				
-			</div>
-			<div class="col-xs-10 col-xs-offset-1 col-lg-3">
-			 	<label class="m-b-0 label-form">¿Quieres adjuntar tu CV?</label>
-			 	
-				<label class="btn btn-primary btn-round height width100 ptb0">
-					<div class="flex-sa">	 	
-					    <div class="flex-vm"><span class="fa fa-paperclip fa-2x" style="color: white;"></span></div>
-					    <span class="text-white"><b>Tu CV</b></span>
-				    </div>
-				    <input ng-click="some()" type="file" style="display: none;" fileread="candidate.profile.resumee.file" name="cvName" id="cvRead" accept=".pdf,.doc,.docx">
-				</label>
-				<label class="label-form" ng-show="true"><i class="fa fa-file-text-o" aria-hidden="true"></i><i class="indent">{{cvName}}</i></label>
-				
-			</div>
-			
-			<div class="col-xs-10 col-xs-offset-1 col-lg-3">
-			 	<label class="m-b-0 label-form">¿Quieres adjuntar tu portafolio?</label>
-			 	
-				<label class="btn btn-primary btn-round height width100 ptb0">
-					<div class="flex-sa">	 	
-					    <div class="flex-vm"><span class="fa fa-paperclip fa-2x" style="color: white;"></span></div>
-					    <span class="text-white"><b>Tu portafolio</b></span>
-				    </div>
-				    <input ng-click="some()" type="file" style="display: none;" fileread="candidate.profile.portfolio.file" name="portfolioName" id="portfolioRead" accept=".pdf">
-				</label>
-				<label class="label-form" ng-show="true"><i class="fa fa-briefcase" aria-hidden="true"></i><i class="indent">{{portfolioName}}</i></label>
-				
-			</div>
-			<div class="col-lg-12"></div>
-			
-			<div class="col-xs-12 col-lg-12">
-				<label class="label-group fancy-checkbox" style="padding-left:0;font-size: 1em;padding-top:5px;padding-bottom:25px;">
-					<input type="checkbox" value="" name="foto-in-cv" id="foto-in-cv" ng-model="candidate.profile.imageAvailability">
-					<i class="fa fa-fw fa-square-o unchecked"></i>
-		   			<i class="fa fa-fw fa-check-square-o checked"></i>
-					Deseo que mi foto aparezca en mi CV.
-				</label> 
-			</div>
-			<div class="col-xs-12 col-lg-3">
-				<legend class="label-group">Titulo de tu CV:</legend>
-				<label for="example-text-input" class="col-2 col-form-label label-form">Puesto actual o al que aspiras: <span class="fa fa-asterisk req-asterisk sup" aria-hidden="true"></span></label>
-				<input name="cvTitle" class="form-control" type="text" id="example-text-input"  
-					   ng-class="{'has-error': uCtrl.userDataForm.cvTitle.$valid == false && uCtrl.userDataForm.cvTitle.$touched == true}"
-					   ng-model="candidate.cvTitle" ng-pattern="/^[a-zA-Z_áéíóúñ\s]*$/" required>
-				<label class="text-error" ng-show="uCtrl.userDataForm.cvTitle.$valid == false && uCtrl.userDataForm.cvTitle.$touched == true">*Introduce título de CV</label>
-				<label class="text-error" ng-show="uCtrl.userDataForm.cvTitle.$error.pattern">*Sólo se permiten letras</label>
-			</div>
-			<div class="col-xs-12 col-lg-6">
-				<p class="l-h-1-2em p-3em">Tip: Escribe el puesto que desempeñas actualmente o el que quisieras ocupar, éste será lo primero que verán los reclutadores al buscar talento.
-			</div>
-			
-			
-			<div class="col-xs-12 col-md-12 label-group dp"><strong>Datos personales:</strong></div>
-			
-			<div class="col-xs-12 col-lg-3">
-				<label for="example-text-input" class="col-2 col-form-label label-form">Nombre(s) <span class="fa fa-asterisk req-asterisk sup" aria-hidden="true"></span></label>
-				<input name="name" class="form-control" type="text" id="example-text-input"  
-					   ng-class="{'has-error': uCtrl.userDataForm.name.$valid == false && uCtrl.userDataForm.name.$touched == true}"
-					   ng-model="candidate.name" ng-pattern="/^[a-zA-Z_áéíóúñ\s]*$/" required>
-				<label class="text-error" ng-show="uCtrl.userDataForm.name.$valid == false && uCtrl.userDataForm.name.$touched == true">*Introduce tu nombre</label>
-				<label class="text-error" ng-show="uCtrl.userDataForm.name.$error.pattern">*Sólo se permiten letras</label>
-			</div>
-			
-			<div class="col-xs-12 col-lg-3">
-				<label for="example-text-input" class="col-2 col-form-label  label-form">Apellidos <span class="fa fa-asterisk req-asterisk sup" aria-hidden="true"></span></label>
-				<input name="lastName" class="form-control" type="text" id="example-text-input" 
-					   ng-class="{'has-error': uCtrl.userDataForm.lastName.$valid == false && uCtrl.userDataForm.lastName.$touched == true}"
-					   ng-model="candidate.lastName" ng-pattern="/^[a-zA-Z_áéíóúñ\s]*$/" required>
-				<label class="text-error" ng-show="uCtrl.userDataForm.lastName.$valid == false && uCtrl.userDataForm.lastName.$touched == true">*Introduce tus apellidos</label>
-				<label class="text-error" ng-show="uCtrl.userDataForm.lastName.$error.pattern">*Sólo se permiten letras</label>
-			</div>
-			
-			<div class="col-xs-12 col-lg-3">
-				<label for="example-date-input" class=" col-form-label  label-form">Fecha de nacimiento <span class="fa fa-asterisk req-asterisk sup" aria-hidden="true"></span></label>
-				<input name="date" class="form-control" type="date" value="1997-08-19" id="example-date-input" 
-					   ng-class="{'has-error': uCtrl.userDataForm.date.$valid == false && uCtrl.userDataForm.date.$touched == true}"		
-					   ng-model="candidate.birthDate" required>
-				<label class="text-error" ng-show="uCtrl.userDataForm.date.$valid == false && uCtrl.userDataForm.date.$touched == true">*Introduce tu fecha de nacimiento</label>
-			</div>	
-			
-			<div class="col-xs-12 col-lg-3">
-				<div class="box">
-					<label class=" label-form">Género</label>
-					<div class="generos b">
-					
-						<div class="genero b" ng-class="{'genero-active': candidate.gender === 'male'}" ng-click="candidate.gender = 'male'">
-							<i class="fa fa-male fa-lg black"></i> 
+	    		</div>
+	    		<div class="col-xs-12 col-md-5 d-flex align-items-center">
+					<p class="form__paragraph">Tip: Escribe el puesto que desempeñas actualmente o el que quisieras ocupar, éste será lo primero que verán los reclutadores al buscar talento.
+				</div>
+	    		<div class="col-12"></div>
+				<legend for="exampleInputEmail1" class="pl-3">Datos personales:</legend>
+				<div class="col-12 col-md-3">
+				  <div class="form-group">
+						<label for="example-text-input" class="label-form">Nombre(s)<span class="fa fa-asterisk req-asterisk sup" aria-hidden="true"></span></label>
+						<input name="name" class="form-control" type="text" id="example-text-input"  
+				   ng-class="{'has-error': uCtrl.userDataForm.name.$valid == false && uCtrl.userDataForm.name.$touched == true}"
+				   ng-model="candidate.name" ng-pattern="/^[a-zA-Z_áéíóúñ\s]*$/" required>
+						<small id="emailHelp" class="form-text text-muted d-none">We'll never share your email with anyone else.</small>
+						<label class="text-error" ng-show="uCtrl.userDataForm.name.$valid == false && uCtrl.userDataForm.name.$touched == true">*Introduce tu nombre</label>
+						<label class="text-error" ng-show="uCtrl.userDataForm.name.$error.pattern">*Sólo se permiten letras</label>
+				  </div>
+	    		</div>
+	    		<div class="col-12 col-md-3">
+						<label for="example-text-input" class="">Apellidos<span class="fa fa-asterisk req-asterisk sup" aria-hidden="true"></span></label>
+						<input name="lastName" class="form-control" type="text" id="example-text-input" 
+				   ng-class="{'has-error': uCtrl.userDataForm.lastName.$valid == false && uCtrl.userDataForm.lastName.$touched == true}"
+				   ng-model="candidate.lastName" ng-pattern="/^[a-zA-Z_áéíóúñ\s]*$/" required>
+						<label class="text-error" ng-show="uCtrl.userDataForm.lastName.$valid == false && uCtrl.userDataForm.lastName.$touched == true">*Introduce tus apellidos</label>
+						<label class="text-error" ng-show="uCtrl.userDataForm.lastName.$error.pattern">*Sólo se permiten letras</label>
+	    		</div>
+	    		
+	    		<div class="col-12 col-lg-3">
+					<label for="date" class="">Fecha de nacimiento<span class="fa fa-asterisk req-asterisk sup" aria-hidden="true"></span></label>
+					<input name="date" class="form-control" type="date" value="1997-08-19" id="example-date-input" 
+						   ng-class="{'has-error': uCtrl.userDataForm.date.$valid == false && uCtrl.userDataForm.date.$touched == true}"		
+						   ng-model="candidate.birthDate" required>
+					<label class="text-error" ng-show="uCtrl.userDataForm.date.$valid == false && uCtrl.userDataForm.date.$touched == true">*Introduce tu fecha de nacimiento</label>
+				</div>
+				<div class="col-xs-12 col-lg-3">
+					<div class="box">
+						<label class="">Género</label>
+						<div class="generos">
+							<div class="genero b" ng-class="{'genero-active': candidate.gender === 'male'}" ng-click="candidate.gender = 'male'">
+								<i class="fa fa-male fa-lg black"></i> 
+							</div>
+							<div class="genero b" ng-class="{'genero-active': candidate.gender === 'female'}" ng-click="candidate.gender = 'female'">
+								<i class="fa fa-female fa-lg black"></i>
+							</div>
 						</div>
-						<div class="genero b" ng-class="{'genero-active': candidate.gender === 'female'}" ng-click="candidate.gender = 'female'">
-							<i class="fa fa-female fa-lg black"></i>
-						</div>
-					</div>
-					
+					</div>	
+				</div>
+		
+				<div class="col-12 col-lg-3">
+					<label for="example-text-input" class="">Código postal <span class="fa fa-asterisk req-asterisk sup" aria-hidden="true"></span></label>
+					<input class="form-control" type="number" id="example-text-input" name="zipCode" pattern="[0-9]{3}"
+				   ng-class="{'has-error': uCtrl.userDataForm.zipCode.$valid == false && uCtrl.userDataForm.zipCode.$touched == true}"
+				   ng-model="candidate.address.zipCode" ng-pattern="/^[0-9]{5}$/" required>
+					<label class="text-error" ng-show="uCtrl.userDataForm.zipCode.$valid == false && uCtrl.userDataForm.zipCode.$touched == true">*Introduce tu código postal</label>
+					<label class="text-error" ng-show="uCtrl.userDataForm.zipCode.$error.pattern">*Sólo deben ser 5 números exactos</label>
 				</div>	
-			</div>
+				<div class="col-xs-12 col-lg-3">
+					<label for="example-text-input" class="">Correo electrónico  <span class="fa fa-asterisk req-asterisk sup" aria-hidden="true"></span></label>
+					<input ng-init="candidate.mail = '${mail}'" class="form-control" type="email" id="example-text-input" ng-model="candidate.email" required>
+				</div>
 			
-			<div class="col-lg-12"></div>
-			
-			<div class="col-xs-12 col-lg-3">
-				<label for="example-text-input" class="col-2 col-form-label label-form">Código postal <span class="fa fa-asterisk req-asterisk sup" aria-hidden="true"></span></label>
-				<input class="form-control" type="number" id="example-text-input" name="zipCode" pattern="[0-9]{3}"
-					   ng-class="{'has-error': uCtrl.userDataForm.zipCode.$valid == false && uCtrl.userDataForm.zipCode.$touched == true}"
-					   ng-model="candidate.address.zipCode" ng-pattern="/^[0-9]{5}$/" required>
-				<label class="text-error" ng-show="uCtrl.userDataForm.zipCode.$valid == false && uCtrl.userDataForm.zipCode.$touched == true">*Introduce tu código postal</label>
-				<label class="text-error" ng-show="uCtrl.userDataForm.zipCode.$error.pattern">*Sólo deben ser 5 números exactos</label>
-			</div>	
-			
-			<div class="col-xs-12 col-lg-3">
-				<label for="example-text-input" class="col-2 col-form-label label-form">Correo electrónico  <span class="fa fa-asterisk req-asterisk sup" aria-hidden="true"></span></label>
-				<input ng-init="candidate.mail = '${mail}'" class="form-control" type="email" id="example-text-input" ng-model="candidate.email" required>
-			</div>
+				<div class="col-xs-12 col-lg-3">
+					<label for="example-text-input" class="">Teléfono Celular</label>
+					<input class="form-control" name="cellPhone" type="number" id="example-text-input" ng-model="candidate.contact.phones[0].number" ng-pattern="/^[0-9]{10}$/">
+					<label class="text-error" ng-show="uCtrl.userDataForm.cellPhone.$error.pattern">*Sólo deben ser 10 números exactos</label>
+				</div>	
+				<div class="col-xs-12 col-lg-3">
+					<label for="example-text-input" class="">Teléfono Casa</label>
+					<input class="form-control" name="localPhone" type="number" id="example-text-input" ng-model="candidate.contact.phones[1].number" ng-pattern="/^[0-9]{8,12}$/">
+					<label class="text-error" ng-show="uCtrl.userDataForm.localPhone.$error.pattern">*Pueden ser 8 números mínimo y 12 máximo</label>
+				</div>
+				<div class="col-12 col-lg-3">
+					<legend>Redes sociales:</legend>
+				</div>
+				<div class="col-12 col-lg-3 offset-lg-6">
+					<legend>¿Comparte tu repositorio?</legend>
+				</div>
 				
-			<div class="col-xs-12 col-lg-3">
-				<label for="example-text-input" class="col-2 col-form-label label-form">Teléfono Celular</label>
-				<input class="form-control" name="cellPhone" type="number" id="example-text-input" ng-model="candidate.contact.phones[0].number" ng-pattern="/^[0-9]{10}$/">
-				<label class="text-error" ng-show="uCtrl.userDataForm.cellPhone.$error.pattern">*Sólo deben ser 10 números exactos</label>
-			</div>	
-			
-			<div class="col-xs-12 col-lg-3">
-				<label for="example-text-input" class="col-2 col-form-label label-form">Teléfono Casa</label>
-				<input class="form-control" name="localPhone" type="number" id="example-text-input" ng-model="candidate.contact.phones[1].number" ng-pattern="/^[0-9]{8,12}$/">
-				<label class="text-error" ng-show="uCtrl.userDataForm.localPhone.$error.pattern">*Pueden ser 8 números mínimo y 12 máximo</label>
-			</div>
-			
-			<div class="col-lg-12"></div>
-			
-			<div class="col-xs-12 col-lg-3 label-group" style="font-size: 13px;">Redes sociales:</div>
-			<div class="col-xs-12 col-lg-3 col-lg-offset-6 label-group" style="font-size: 13px;">¿Quieres compartir tu repositorio?</div>
-			
-			<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-6 col-lg-3">
-				<button class="btn btn-round btn-primary height width100 fb ptb0" ng-show=false>
-					<div class="flex-sa">
-						<div class="flex-vm">
-							<span class="fa-stack fa-lg" style="color: font-size: 1em;">
-							  <i class="fa fa-circle-thin fa-stack-2x"></i>
+				<div class="col-xs-10 col-sm-6 col-md-6 col-lg-3 d-flex mb-sm-down">
+					<label class="" for="inputNetFacebook">
+						<div class="flex-vm" style="margin-right: 1rem;">
+							<span class="fa-stack fa-lg" style="font-size: 1em;">
+							  <i class="fa fa-circle fa-stack-2x"></i>
 							  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
 							</span>
 						</div>
-						<span><b>Conectar</b></span>
-					</div>
-				</button>
-				
-				
-			</div>
-			<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-6 col-lg-3">
-				<button class="btn btn-round btn-primary height width100 fb ptb0">
-					<div class="flex-sa">
-						<div class="flex-vm">
-							<span class="fa-stack fa-lg" style="color: font-size: 1em;">
-							  <i class="fa fa-circle-thin fa-stack-2x"></i>
+					</label>
+			  		<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inputNetFacebook">
+				</div>
+				<div class="col-xs-10 col-sm-6 col-md-6 col-lg-3 d-flex mb-sm-down">
+					<label class="" for="inputNetTwitter">
+						<div class="flex-vm" style="margin-right: 1rem;">
+							<span class="fa-stack fa-lg" style="font-size: 1em;">
+							  <i class="fa fa-circle fa-stack-2x"></i>
 							  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
 							</span>
 						</div>
-						<span><b>Conectar</b></span>
-					</div>
-				</button>
-			</div>
-			<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-6 col-lg-3">
-				<button class="btn btn-round btn-primary height width100 fb ptb0">
-					<div class="flex-sa">
-						<div class="flex-vm">
-							<span class="fa-stack fa-lg" style="color: font-size: 1em;">
-							  <i class="fa fa-circle-thin fa-stack-2x"></i>
+					</label>
+			  	<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inputNetTwitter">
+				</div>
+				<div class="col-xs-10 col-sm-6 col-md-6 col-lg-3 d-flex">
+					<label class="" for="inputNetLinkedin">
+						<div class="flex-vm" style="margin-right: 1rem;">
+							<span class="fa-stack fa-lg" style="font-size: 1em;">
+							  <i class="fa fa-circle fa-stack-2x"></i>
 							  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
 							</span>
 						</div>
-						<span><b>Conectar</b></span>
-					</div>
-				</button>
-			</div>
-			<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-6 col-lg-3">
-				<button class="btn btn-round btn-primary height width100 fb ptb0">
-					<div class="flex-sa">
-						<div class="flex-vm">
-							<span class="fa-stack fa-lg" style="color: font-size: 1em;">
-							  <i class="fa fa-circle-thin fa-stack-2x"></i>
-							  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-							</span>
+					</label>
+			  		<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inputNetLinkedin">
+				</div>
+				<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-6 col-lg-3 d-flex">
+					<label class="" for="inputNetGoogle">
+						<div class="flex-vm" style="margin-right: 1rem;">
+							<div class="net-social"><i class="icon-github-alt"></i></div>
 						</div>
-						<span><b>Conectar</b></span>
+					</label>
+			  		<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inputNetGoogle">
+				</div>
+		  </div><!-- row -->
+			<div class="row d-flex justify-content-center my-4">
+				<div class="col-12 col-sm-6  col-lg-4">
+					<button type="button" class="btn btn-primary w-100 mb-sm-down" 
+		id="btn-save" ng-click="onPartialSave()" ng-disabled="uCtrl.userDataForm.$valid != true">Guardar
+					</button>
+				</div>
+				<div class="col-12 col-sm-6 col-lg-4">
+						<button type="button" class="btn btn-primary w-100" 
+			id="btn-continue" ng-click="saveContinue(uCtrl.userDataForm, 'career')" ng-disabled="uCtrl.userDataForm.$valid != true">Continuar
+						</button>
 					</div>
-				</button>
 			</div>
 		</div>
-	</div>
-</ng-form>
-
-<div class="col-md-12"></div>
-
-<div class="mt100 mb100 btn-sqrt">
-	
-	<button type="button" class="btn btn-primary btn-lg col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-1" style="border-radius: 0px" 
-			id="btn-save" ng-click="onPartialSave()" ng-disabled="uCtrl.userDataForm.$valid != true">Guardar</button>
- 	
- 	<button type="button" class="btn btn-primary btn-lg col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-2" style="border-radius: 0px" 
- 			id="btn-continue" ng-click="saveContinue(uCtrl.userDataForm, 'career')" ng-disabled="uCtrl.userDataForm.$valid != true">Continuar</button>
-</div>					
-<!-- fin de userData -->
-		    
 
 	<nav class="d-none navbar navbar-toggleable-md navbar-light bg-faded">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -490,6 +399,32 @@
         </div>
       </div>
     </footer>
-	
+  <script src="js/jquery-2.2.0.min.js"></script>  
+	<script>
+	  // jQuery to collapse the navbar on scroll
+		function collapseNavbar() {
+		    if ($(".navbar").offset().top > 50) {
+		        $(".fixed-top").addClass("js-top-nav-collapse");
+		    } else {
+		        $(".fixed-top").removeClass("js-top-nav-collapse");
+		    }
+		}
+		$(window).scroll(collapseNavbar);
+		$(document).ready(collapseNavbar);
+		// jQuery for page scrolling feature - requires jQuery Easing plugin
+		// $(function() {
+		//     $('a.page-scroll').bind('click', function(event) {
+		//         var $anchor = $(this);
+		//         $('html, body').stop().animate({
+		//             scrollTop: $($anchor.attr('href')).offset().top
+		//         }, 1500, 'easeInOutExpo');
+		//         event.preventDefault();
+		//     });
+		// });
+		// Closes the Responsive Menu on Menu Item Click
+		$('.navbar-collapse ul li a').click(function() {
+		    $(".navbar-collapse").collapse('hide');
+		});
+	</script>
 </body>
 </html>

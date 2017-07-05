@@ -10,3 +10,35 @@
 .btn-x-circle {
 	border-radius: 20px;
 }
+.net-social {
+    width: 28px;
+    height: 28px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 50%;
+    color: black;
+    font-size: 26px;
+    line-height: 38px;
+    display: flex;
+    justify-content: center;
+}
+// btn-active se usa en acknowledge.jsp
+.btn-active {
+    color: #fff;
+    background-color: #2b75e0;
+    border-color: #2b75e0;
+}
+
+.btn-md-au-nd-he {
+    background-color: #d0e6ff;//rgb(208, 230, 255); #f1f6fc
+    width: 20%;
+    text-transform: none;
+}
+.fa-color-pink-w {
+	color: $pink-w;
+	border-radius: 50%;
+}
+.minus-position { // este no checar donde ponerlo es para la position del boton circular menos
+	position: relative;
+	top: 1.5rem;
+}

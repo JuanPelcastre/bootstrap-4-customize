@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/bootstrap.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://file.myfontastic.com/oaZpPqkfnMctxdC4vSWmBY/icons.css" rel="stylesheet">
+</head>
+<body class="bg-black-w">
+	 <!-- Intro Header -->
+    <header class="intro">
+    	<nav class="navbar navbar-toggleable navbar-light">
+	      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="navbar-toggler-icon"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">
+	        <img src="http://lorempixel.com/400/200/sports/Dummy-Text/" alt="" width="150" height="60" class="">
+	      </a>
+	
+	      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="display: none;">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active">
+	            <a class="nav-link register lato" href="#">Empresas<span class="sr-only">(current)</span></a>
+	          </li>
+	          <li class="nav-item">
+	            <a class="nav-link register" href="#">Login</a>
+	          </li>
+	        </ul>
+	        <button class="btn btn-outline-primary text-uppercase rounded-0 my-2 my-sm-0 ml-3" type="button">Registro</button>
+	      </div>
+	    </nav>
+	    
+        <div class="intro-body">
+            <div class="container-fluid">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-8 align-">
+                      <h1 class="home-header__title text-center text-white"><b>Aquí está el trabajo de tus sueños</b>
+                      </h1>
+						<form ng-show="true" class="d-none">
+						  <div class="container-fluid d-flex justify-content-center">
+						      <div class="form__search-job block-center row">
+						        <div class="col-xs-12 col-lg-5">
+						          <h5 class="m-b-0"><b>Buscar trabajo como</b></h5>
+						          <div class="form-group">
+						            <label for="perfil">Título, puesto ó palabra clave</label>
+						            <input type="text" class="form-control search-job__input" id="perfil" placeholder="Desarrollador Java Jr.">
+						          </div>
+						        </div>
+						        <div class="col-xs-12 col-lg-5">
+						          <h5 class="m-b-0"><b>Ubicación</b></h5>
+						          <div class="form-group">
+						            <label for="ubicacion">Ingresa la ciudad donde buscas talento</label>
+						            <input type="text" class="form-control search-job__input" id="ubicacion" placeholder="Ciudad de México, México">
+						          </div>
+						        </div>
+						        <div class="col-xs-12 col-lg-2 container-btn d-flex align-items-end">
+						          <button id="buscar" type="submit" class="btn btn-primary btn-block rounded-0 bold">BUSCAR</button>
+						        </div>
+						      </div>
+						  </div>
+						</form>
+						<br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+	<button class="btn btn-outline-primary btn-x-circle px-4 btn-active">Java</button>	
+	<button class="btn btn-outline-primary btn-x-circle px-4">C</button>
+
+	<div class="btn-group" data-toggle="buttons">
+	  <label class="btn btn-success">Java</label>
+	  <label class="btn btn-info">
+	    <input type="radio" name="options" id="option2" autocomplete="off"> Radio 2
+	  </label>
+	  <label class="btn btn-info">
+	    <input type="radio" name="options" id="option3" autocomplete="off"> Radio 3
+	  </label>
+	</div>	
+	
+	<div class="btn-group" data-toggle="buttons">
+	  <label class="btn btn-primary active">
+	    <input type="radio" name="options" id="option1" autocomplete="off" checked> Radio 1 (preselected)
+	  </label>
+	  <label class="btn btn-primary">
+	    <input type="radio" name="options" id="option2" autocomplete="off"> Radio 2
+	  </label>
+	  <label class="btn btn-primary">
+	    <input type="radio" name="options" id="option3" autocomplete="off"> Radio 3
+	  </label>
+	</div>
+
+    <div class="container">
+    	<div class="row">
+			
+			<!-- >>>>>>>>>> LENGUAJES DE PROGRAMACION <<<<<<<<<< -->
+<div class="">
+	<div class="col-xs-12 label-group dp">
+		<strong>Lenguajes de programación</strong>
+	</div>
+</div>
+
+<div class="col-xs-12">
+	<label for="example-text-input" class="label-form">escoge hasta 5</label>
+</div>
+
+<div class="col-xs-12 flex-row">
+	<button type="button" class="btn-a btn-round" ng-class="n.selected ? 'btn btn-selected':'btn btn-primary'" 
+			ng-repeat="n in technologies" ng-click="elementPress(acknowledge.technologiesSelected,n,5)">{{n.name}}</button>
+</div>
+
+<div class="" ng-repeat="n in acknowledge.technologiesSelected">
+	<div class="btn-group col-xs-12 col-md-6">
+	  <label for="example-text-input" class="label-form">Años de uso</label>
+	  <button type="button" class="btn btn-ouline-primary">{{n.name}}</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.expType.selected == 1, 'btn btn-md-au-nd': n.expType.selected != 1}"  ng-click="experienceTime(0,1,n,1)">0-1</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.expType.selected == 2, 'btn btn-md-au-nd': n.expType.selected != 2}" ng-click="experienceTime(1,3,n,2)">1-3</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.expType.selected == 3, 'btn btn-md-au-nd': n.expType.selected != 3}" ng-click="experienceTime(3,5,n,3)">3-5</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.expType.selected == 4, 'btn btn-md-au-nd': n.expType.selected != 4}" ng-click="experienceTime(5,10,n,4)">5 +</button>
+	</div>
+	<div class="btn-group col-xs-12 col-md-6">
+	  <label for="example-text-input" class="label-form">Dominio</label>
+	  <button type="button" class="btn btn-md-au-nd-he">{{n.name}}</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.rankSelected == 1, 'btn btn-md-au-nd': n.rankSelected != 1}" ng-click="experienceRank('basic',n,1)">Básico</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.rankSelected == 2, 'btn btn-md-au-nd': n.rankSelected != 2}" ng-click="experienceRank('jr',n,2)">Junior</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.rankSelected == 3, 'btn btn-md-au-nd': n.rankSelected != 3}" ng-click="experienceRank('medium',n,3)">Medio</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.rankSelected == 4, 'btn btn-md-au-nd': n.rankSelected != 4}" ng-click="experienceRank('senior',n,4)">Senior</button>
+	</div>
+</div>
+
+<div class="flex-s">
+
+	<div class="col-xs-12 col-lg-3">
+		<label for="example-text-input" class="col-2 col-form-label label-form">Otro:</label>
+		<input type="text" class="form-control" ng-model="techAdd">
+	</div>
+	
+	<div class="col-xs-12 col-lg-4 pt1-4em">
+		<span class="fa-stack" style="color: #2b75e0" ng-click="techAdd && elementPress(acknowledge.technologiesSelected,techAdd,5)">
+		  <i class="fa fa-circle fa-stack-2x"></i>
+		  <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+		</span>
+		<p style="display:inline-block;" class=""><small>Agregar Lenguaje de programación</small></p>
+	</div>
+	
+</div>
+
+<div class="col-xs-12"></div>
+
+<!-- >>>>>>>>>> BASES DE DATOS <<<<<<<<<< -->
+<div class="col-xs-12 label-group dp"><strong>Bases de datos</strong></div>
+
+<div class="col-xs-12">
+	<label for="example-text-input" class="label-form">escoge hasta 3</label>
+</div>
+
+<div class="col-xs-12 flex-row">
+	<button type="button" class="btn-a btn-round" ng-class="n.selected ? 'btn btn-selected':'btn btn-primary'" ng-repeat="n in technicalSkills.dbs" 
+			ng-click="elementPress(acknowledge.dbsSelected,n,3)">{{n.name}}</button>
+</div>
+
+
+<div class="" ng-repeat="n in acknowledge.dbsSelected">
+	<div class="btn-group col-xs-12 col-md-6">
+	  <label for="example-text-input" class="col-2 col-form-label label-form">Años de uso</label>
+	  <button type="button" class="btn btn-md-au-nd-he">{{n.name}}</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.expType.selected == 1, 'btn btn-md-au-nd': n.expType.selected != 1}" ng-click="experienceTime(0,1,n,1)">0-1</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.expType.selected == 2, 'btn btn-md-au-nd': n.expType.selected != 2}" ng-click="experienceTime(1,3,n,2)">1-3</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.expType.selected == 3, 'btn btn-md-au-nd': n.expType.selected != 3}" ng-click="experienceTime(3,5,n,3)">3-5</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.expType.selected == 4, 'btn btn-md-au-nd': n.expType.selected != 4}" ng-click="experienceTime(5,10,n,4)">5 +</button>
+	</div>
+	<div class="btn-group col-xs-12 col-md-6">
+	  <label for="example-text-input" class="col-2 col-form-label label-form">Dominio</label>
+	  <button type="button" class="btn btn-md-au-nd-he">{{n.name}}</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.rankSelected == 1, 'btn btn-md-au-nd': n.rankSelected != 1}" ng-click="experienceRank('basic',n,1)">Básico</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.rankSelected == 2, 'btn btn-md-au-nd': n.rankSelected != 2}" ng-click="experienceRank('jr',n,2)">Junior</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.rankSelected == 3, 'btn btn-md-au-nd': n.rankSelected != 3}" ng-click="experienceRank('medium',n,3)">Medio</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.rankSelected == 4, 'btn btn-md-au-nd': n.rankSelected != 4}" ng-click="experienceRank('senior',n,4)">Senior</button>
+	</div>
+</div>
+
+
+<div class="col-xs-12 col-lg-3">
+	<label for="example-text-input" class="col-2 col-form-label label-form">Otro:</label>
+	<input class="form-control" type="text" id="example-text-input" ng-model="dbAdd">
+</div>
+
+<div class="col-xs-12 col-lg-3 pt1-4em">
+	<span class="fa-stack" style="color: #2b75e0" ng-click="dbAdd && elementPress(acknowledge.dbsSelected,dbAdd,3)">
+	  <i class="fa fa-circle fa-stack-2x"></i>
+	  <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+	</span>
+	<p style="display:inline-block;" class=""><small>Agregar Base de Datos</small></p>
+</div>
+
+<div class="col-xs-12"></div>
+
+<!-- >>>>>>>>>> SISTEMAS OPERATIVOS <<<<<<<<<< -->
+<div class="col-xs-12 label-group dp">
+	<strong>Sistemas operativos</strong>
+</div>
+<div class="col-xs-12">
+	<label for="example-text-input" class="label-form">escoge hasta 3</label>
+</div>
+
+<div class="col-xs-12 flex-row">
+	<button type="button" class="btn-a btn-round" ng-class="n.selected ? 'btn btn-selected':'btn btn-primary'" 
+			ng-repeat="n in technicalSkills.so" ng-click="elementPress(acknowledge.soSelected,n,3)">{{n.name}}</button>
+</div>
+
+<div class="" ng-repeat="n in acknowledge.soSelected">
+	<div class="btn-group col-xs-12 col-md-6">
+	  <label for="example-text-input" class="col-2 col-form-label label-form">Años de uso</label>
+	  <button type="button" class="btn btn-md-au-nd-he">{{n.name}}</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.expType.selected == 1, 'btn btn-md-au-nd': n.expType.selected != 1}" ng-click="experienceTime(0,1,n,1)">0-1</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.expType.selected == 2, 'btn btn-md-au-nd': n.expType.selected != 2}" ng-click="experienceTime(1,3,n,2)">1-3</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.expType.selected == 3, 'btn btn-md-au-nd': n.expType.selected != 3}" ng-click="experienceTime(3,5,n,3)">3-5</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.expType.selected == 4, 'btn btn-md-au-nd': n.expType.selected != 4}" ng-click="experienceTime(5,10,n,4)">5 +</button>
+	</div>
+	<div class="btn-group col-xs-12 col-md-6">
+	  <label for="example-text-input" class="col-2 col-form-label label-form">Dominio</label>
+	  <button type="button" class="btn btn-md-au-nd-he">{{n.name}}</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.rankSelected == 1, 'btn btn-md-au-nd': n.rankSelected != 1}" ng-click="experienceRank('basic',n,1)">Básico</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.rankSelected == 2, 'btn btn-md-au-nd': n.rankSelected != 2}" ng-click="experienceRank('jr',n,2)">Junior</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.rankSelected == 3, 'btn btn-md-au-nd': n.rankSelected != 3}" ng-click="experienceRank('medium',n,3)">Medio</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.rankSelected == 4, 'btn btn-md-au-nd': n.rankSelected != 4}" ng-click="experienceRank('senior',n,4)">Senior</button>
+	</div>
+</div>
+
+<div class="col-xs-12 col-lg-3">
+	<label for="example-text-input" class="label-form">Otro:</label>
+	<input class="form-control" ng-model="soAdd" type="text" id="example-text-input" placeholder="">
+</div>
+
+<div class="col-xs-12 col-lg-3 pt1-4em">
+	<span class="fa-stack" style="color: #2b75e0" ng-click="soAdd && elementPress(acknowledge.soSelected,soAdd,3)">
+	  <i class="fa fa-circle fa-stack-2x"></i>
+	  <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+	</span>
+	<p style="display:inline-block;" class=""><small>Agregar Sistema Operativo</small></p>
+</div>
+
+<div class="col-xs-12"></div>
+
+<!-- >>>>>>>>>> FRAMEWORKS <<<<<<<<<< -->
+<div class="col-xs-12 label-group dp">
+	<strong>Frameworks</strong>
+</div>
+<div class="col-xs-12">
+	<label for="example-text-input" class="label-form">escoge hasta 3</label>
+</div>
+<div class="col-xs-12 flex-row">
+	<button type="button" class="btn-a btn-round" ng-class="n.selected ? 'btn btn-selected':'btn btn-primary'" 
+			ng-repeat="n in technicalSkills.frameworks" ng-click="elementPress(acknowledge.frameSelected,n,3)">{{n.name}}</button>
+</div>
+
+<div class="" ng-repeat="n in acknowledge.frameSelected">
+	<div class="btn-group col-xs-12 col-md-6">
+	  <label for="example-text-input" class="col-2 col-form-label label-form">Años de uso</label>
+	  <button type="button" class="btn btn-md-au-nd-he">{{n.name}}</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.expType.selected == 1, 'btn btn-md-au-nd': n.expType.selected != 1}" ng-click="experienceTime(0,1,n,1)">0-1</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.expType.selected == 2, 'btn btn-md-au-nd': n.expType.selected != 2}" ng-click="experienceTime(1,3,n,2)">1-3</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.expType.selected == 3, 'btn btn-md-au-nd': n.expType.selected != 3}" ng-click="experienceTime(3,5,n,3)">3-5</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.expType.selected == 4, 'btn btn-md-au-nd': n.expType.selected != 4}" ng-click="experienceTime(5,10,n,4)">5 +</button>
+	</div>
+	<div class="btn-group col-xs-12 col-md-6">
+	  <label for="example-text-input" class="col-2 col-form-label label-form">Dominio</label>
+	  <button type="button" class="btn btn-md-au-nd-he">{{n.name}}</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.rankSelected == 1, 'btn btn-md-au-nd': n.rankSelected != 1}" ng-click="experienceRank('basic',n,1)">Básico</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.rankSelected == 2, 'btn btn-md-au-nd': n.rankSelected != 2}" ng-click="experienceRank('jr',n,2)">Junior</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.rankSelected == 3, 'btn btn-md-au-nd': n.rankSelected != 3}" ng-click="experienceRank('medium',n,3)">Medio</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.rankSelected == 4, 'btn btn-md-au-nd': n.rankSelected != 4}" ng-click="experienceRank('senior',n,4)">Senior</button>
+	</div>
+</div>
+	
+<div class="col-xs-12 col-lg-3">
+	<label for="example-text-input" class="label-form">Otro:</label>
+	<input class="form-control" type="text" id="example-text-input" placeholder="" ng-model="frameAdd">
+</div>
+
+<div class="col-xs-12 col-lg-3 pt1-4em">
+	<span class="fa-stack" style="color: #2b75e0" ng-click="frameAdd && elementPress(acknowledge.frameSelected,frameAdd,3)">
+	  <i class="fa fa-circle fa-stack-2x"></i>
+	  <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+	</span>
+	<p style="display:inline-block;" class=""><small>Agregar Framework</small></p>
+</div>
+
+<div class="col-xs-12"></div>
+
+<!-- >>>>>>>>>> METODOLOGIAS <<<<<<<<<< -->
+<div class="col-xs-12 label-group dp">
+	<strong>Metodologías</strong>
+</div>
+
+<div class="col-xs-12">
+	<label for="example-text-input" class="label-form">escoge hasta 3</label>
+</div>
+
+<div class="col-xs-12 flex-row">
+	<button class="btn-a btn-round" ng-class="n.selected ? 'btn btn-selected':'btn btn-primary'"  
+			ng-repeat="n in technicalSkills.methods" ng-click="elementPress(acknowledge.methodsSelected,n,3)">SCRUM</button>
+</div>
+	
+<div class="col-xs-12 col-lg-3">
+	<label for="example-text-input" class="label-form">Otro:</label>
+	<input class="form-control" type="text" id="example-text-input" placeholder="">
+</div>
+
+<div class="col-xs-12"></div>
+
+<!-- >>>>>>>>>> SOFTWARE <<<<<<<<<< -->
+<div class="col-xs-12 label-group dp"><strong>Software</strong></div>
+
+<div class="col-xs-12">
+	<label for="example-text-input" class="label-form">escoge hasta 3</label>
+</div>
+
+<div class="col-xs-12 flex-row">
+	<button class="btn-a btn-round" ng-class="n.selected ? 'btn btn-selected':'btn btn-primary'" 
+			ng-repeat="n in technicalSkills.software" ng-click="elementPress(acknowledge.softwareSelected,n,3)">{{n.name}}</button>
+</div>
+
+<div class="col-xs-12 col-lg-3">
+	<label for="example-text-input" class="col-2 col-form-label label-form">Otro:</label>
+	<input class="form-control" type="text" id="example-text-input" placeholder="">
+</div>
+
+<div class="col-xs-12"></div>
+
+<!-- >>>>>>>>>> CRM <<<<<<<<<< -->
+<div class="col-xs-12 label-group dp">
+	<strong>CRM</strong>
+</div>
+
+<div class="col-xs-12">
+	<label for="" class="label-form">escoge hasta 3</label>
+</div>
+
+<div class="col-xs-12 flex-row">
+	<button class="btn-a btn-round" ng-class="n.selected ? 'btn btn-selected':'btn btn-primary'" 
+			ng-repeat="n in technicalSkills.crm" ng-click="elementPress(acknowledge.crmSelected,n,3)">{{n.name}}</button>
+</div>
+
+<div class="col-xs-12 col-lg-3">
+	<label for="" class="col-2 col-form-label label-form">Otro:</label>
+	<input class="form-control" type="text" id="example-text-input" placeholder="">
+</div>
+
+<div class="col-xs-12"></div>
+
+<!-- >>>>>>>>>> ERP <<<<<<<<<< -->
+<div class="col-xs-12 label-group dp">
+	<strong>ERP</strong>
+</div>
+
+<div class="col-xs-12">
+	<label for="" class="label-form">escoge hasta 3</label>
+</div>
+
+<div class="col-xs-12 flex-row">
+	<button class="btn-a btn-round" ng-class="n.selected ? 'btn btn-selected':'btn btn-primary'" 
+			ng-repeat="n in technicalSkills.erp" ng-click="elementPress(acknowledge.erpSelected,n,3)">{{n.name}}</button>
+</div>
+
+<div class="col-xs-12 col-lg-3">
+	<label for="" class="label-form">Otro:</label>
+	<input class="form-control" type="text" id="" placeholder="">
+</div>
+
+<div class="col-xs-12"></div>
+
+<!-- >>>>>>>>>> IDIOMAS <<<<<<<<<< -->
+<div class="col-xs-12 label-group dp">
+	<strong>Idiomas</strong>
+</div>
+
+<div class="col-xs-12 ">
+	<label for="" class="label-form">escoge hasta 3</label>
+</div>
+
+<div class="col-xs-12 flex-row">
+	<button class="btn-a btn-round" ng-class="n.selected ? 'btn btn-selected':'btn btn-primary'" 
+			ng-repeat="n in technicalSkills.lenguages" ng-click="elementPress(acknowledge.lenguagesSelected,n,3)">{{n.name}}</button>
+</div>
+
+<div class="" ng-repeat="n in acknowledge.lenguagesSelected">
+	<div class="btn-group col-xs-12 col-md-6">
+	  <label for="example-text-input" class="col-2 col-form-label label-form">Años de uso</label>
+	  <button type="button" class="btn btn-md-au-nd-he">{{n.name}}</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.expType.selected == 1, 'btn btn-md-au-nd': n.expType.selected != 1}" ng-click="experienceTime(0,1,n,1)">0-1</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.expType.selected == 2, 'btn btn-md-au-nd': n.expType.selected != 2}" ng-click="experienceTime(1,3,n,2)">1-3</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.expType.selected == 3, 'btn btn-md-au-nd': n.expType.selected != 3}" ng-click="experienceTime(3,5,n,3)">3-5</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.expType.selected == 4, 'btn btn-md-au-nd': n.expType.selected != 4}" ng-click="experienceTime(5,10,n,4)">5 +</button>
+	</div>
+	<div class="btn-group col-xs-12 col-md-6">
+	  <label for="example-text-input" class="col-2 col-form-label label-form">Dominio</label>
+	  <button type="button" class="btn btn-md-au-nd-he">{{n.name}}</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.rankSelected == 1, 'btn btn-md-au-nd': n.rankSelected != 1}" ng-click="experienceRank('basic',n,1)">Básico</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.rankSelected == 2, 'btn btn-md-au-nd': n.rankSelected != 2}" ng-click="experienceRank('inter',n,2)">Intermedio</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.rankSelected == 3, 'btn btn-md-au-nd': n.rankSelected != 3}" ng-click="experienceRank('advanced',n,3)">Avanzado</button>
+	  <button type="button" ng-class="{'btn btn-selected': n.rankSelected == 4, 'btn btn-md-au-nd': n.rankSelected != 4}" ng-click="experienceRank('native',n,4)">Nativo</button>
+	</div>
+</div>
+
+<div class="col-xs-12 col-lg-3">
+	<label for="example-text-input" class="label-form">Otro:</label>
+	<input class="form-control" type="text" id="example-text-input" placeholder="" ng-model="lenguageAdd">
+</div>
+
+<div class="col-xs-12 col-lg-3 pt1-4em">
+	<span class="fa-stack" style="color: #2b75e0" ng-click="lenguageAdd && elementPress(acknowledge.lenguagesSelected,lenguageAdd,3)">
+	  <i class="fa fa-circle fa-stack-2x"></i>
+	  <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+	</span>
+	<p style="display:inline-block;" class=""><small>Agregar Idioma</small></p>
+</div>
+
+<div class="col-xs-12"></div>
+
+<div class="mt100 mb100 btn-sqrt">
+	
+	<button type="button" class="btn btn-primary btn-lg col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-2" style="border-radius: 0px" 
+			id="btn-save" ng-click="saveContinue(null, 'end')">Finalizar</button>
+ 	
+</div>		
+
+
+
+  	
+		</div><!-- en row career -->
+	</div><!-- end container career -->
+
+	
+
+	<footer class="footer">
+      <!-- primera parte de footer background azul -->
+      <div class="bg-primary text-white">
+        <div class="container-footer-bg-blue">          
+          <div class="row" >
+            <div class="col-sm-6 col-lg-3 text-center text-md-right text-lg-left">
+              <a href="javascript:;" class="h5"><strong><ins>WorkIT</ins></strong></a>
+              <h6><small>Blog</small></h6>
+              <h6><small>Preguntas frecuentes</small></h6>
+              <h6><small>Contacto</small></h6>
+            </div>
+            <div class="col-sm-6 col-lg-3 text-center text-md-left">
+              <a href="javascript:;" class="h5 mb-2"><strong><ins>Empresa</ins></strong></a>
+              <h6><small>Planes</small></h6>
+              <h6><small>Registra una oportunidad</small></h6>
+            </div>
+            <div class="col-sm-6 col-lg-3 text-center text-md-right text-lg-left">
+              <a href="javascript:;" class="h5"><strong><ins>Talento</ins></strong></a>
+              <h6><small>Encuentra oportunidades</small></h6>
+              <h6><small>Sube tu CV</small></h6>
+            </div>
+            <div class="col-sm-6 col-lg-3 text-center text-md-left">
+              <h6><strong><small>Suscríbete al newsletter</small></strong></h6>
+              <form action="">
+                <input placeholder="Ingresa tu e-mail">
+                <br>
+                <button type="submit" class="btn btn-outline-secondary rounded-0 mt-3 px-5">Enviar</button>
+              </form>
+            </div>                
+          </div> <!-- end row menu-foot -->
+        </div> <!-- end foot-1 -->
+      </div> <!-- end bg-primary  -->
+      <!-- segunda parte de footer background black -->
+      <div class="bg-black text-white px-4">
+        <div class="container-footer-bg-inverse text-center block-center">
+          <div class="row d-flex justify-content-center">
+            <div class="col-5 text-right">
+              <img src="./assets/images/app-store-badge.svg" width="110">
+            </div>
+            <div class="col-5 text-left">
+              <img src="./assets/images/google-play-badge.svg" width="110">
+            </div>
+          </div>          
+          <div class="">
+            <ul class="list-inline text-center mt-3 mb-3 d-flex justify-content-center">
+              <li>
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x text-white"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse text-black"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x text-white"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse text-black"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x text-white"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse text-black"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <h6 class="text-center"><small>WorkIT, todos los derechos reservados, 2017 | 
+              <br class="hidden-sm-up">
+              <a href="javascript:;" class="text-white"><ins>Acuerdo de privacidad</ins></a></small>
+            </h6>
+          </div>
+        </div>
+      </div>
+    </footer>
+	
+</body>
+</html>

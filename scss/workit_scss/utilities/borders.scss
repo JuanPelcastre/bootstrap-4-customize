@@ -1,4 +1,4 @@
-.b { border: 1px dashed $red; }
+.b { border: 1px solid #282828; }
 .b-orange { border: 1px solid $orange; }
 .b-blue { border: 1px solid $blue; }
 .b-pink { border: 1px solid $pink; }
@@ -7,4 +7,9 @@
 
 .btn-border-crcle {
 	border-radius: 1rem;
+}
+.mb-sm-down {
+	@media (max-width: 991px) {
+		margin-bottom: 1rem;
+	}
 }
