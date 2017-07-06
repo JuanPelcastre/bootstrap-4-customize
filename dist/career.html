@@ -1,382 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>Document</title>
-	<link rel="stylesheet" href="./css/bootstrap.css">
-	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link href="https://file.myfontastic.com/oaZpPqkfnMctxdC4vSWmBY/icons.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://file.myfontastic.com/oaZpPqkfnMctxdC4vSWmBY/icons.css" rel="stylesheet">
 </head>
 <body class="bg-black-w">
-	<!-- Intro Header -->
+  <!-- Intro Header -->
     <div class="container">
-    	<div class="row">
-    		<div class="col-12 col-lg-3">
-				<label>Nivel educativo <span class="fa fa-asterisk" aria-hidden="true"></span></label>
-				<input name="scholarship_{{$id}}" class="form-control" type="text" id="scholarship" placeholder="Licenciatura" 
-				ng-class="{'has-error': uCtrl.careerForm.scholarship_{{$id}}.$valid == false && uCtrl.careerForm.scholarship_{{$id}}.$touched == true}"
-				ng-model="candidate.profile.career.schoolGrades[$index].level" ng-pattern="/^[a-zA-Z_áéíóúñ\s]*$/" required>
-			    <label class="text-error" 
-			  	ng-show="uCtrl.careerForm.scholarship_{{$id}}.$valid == false && uCtrl.careerForm.scholarship_{{$id}}.$touched == true">*Introduce nivel educativo</label>
-				<label class="text-error" 
-				ng-show="uCtrl.careerForm.scholarship_{{$id}}.$error.pattern">*Sólo se permiten letras</label>
-			</div>
-			<div class="col-12 col-lg-3">
-				<label for="institution">Institución <span class="fa fa-asterisk" aria-hidden="true"></span></label>
-				<input name="institution_{{$id}}" class="form-control" type="text" 
-				id="institution" 
-				ng-class="{'has-error': uCtrl.careerForm.institution_{{$id}}.$valid == false && uCtrl.careerForm.institution_{{$id}}.$touched == true}"
-				ng-model="candidate.profile.career.schoolGrades[$index].institute" ng-pattern="/^[a-zA-Z_áéíóúñ\s]*$/" required>
-				<label class="text-error" 
-				ng-show="uCtrl.careerForm.institution_{{$id}}.$valid == false && uCtrl.careerForm.institution_{{$id}}.$touched == true">*Introduce institución</label>
-				<label class="text-error" ng-show="uCtrl.careerForm.institution.$error.pattern">*Sólo se permiten letras</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label for="begin-year-nivel">Año de inicio<span class="fa fa-asterisk" aria-hidden="true"></span></label>
-				<input type="number" name="startEdu_{{$id}}" class="form-control" id="begin-year-nivel" 
-				ng-model="candidate.profile.career.schoolGrades[$index].range.begin" ng-pattern="/^[0-9]{4}$/" min="1950" max="{{currentYear}}"
-				ng-class="{'has-error': uCtrl.careerForm.startEdu_{{$id}}.$valid == false && uCtrl.careerForm.startEdu_{{$id}}.$touched == true}" required>
-				<label class="text-error" 
-				ng-show="uCtrl.careerForm.startEdu_{{$id}}.$valid == false && uCtrl.careerForm.startEdu_{{$id}}.$touched == true">*Introduce año de inicio</label>
-				<label class="text-error" 
-				ng-show="uCtrl.careerForm.startEdu_{{$id}}.$error.pattern">*Sólo se permiten 4 números exactos</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label for="end-year-nivel">Año de término <span class="fa fa-asterisk" aria-hidden="true"></span></label>
-				<input type="number" name="endEdu_{{$id}}" class="form-control" 
-				id="end-year-nivel" placeholder="" 
-				ng-model="candidate.profile.career.schoolGrades[$index].range.end" ng-pattern="/^[0-9]{4}$/" min="{{candidate.profile.career.schoolGrades[$index].range.begin}}" 
-				max="{{currentYear}}" 
-				ng-class="{'has-error': uCtrl.careerForm.endEdu_{{$id}}.$valid == false && uCtrl.careerForm.endEdu_{{$id}}.$touched == true}" required>
-				<label class="text-error" 
-				ng-show="uCtrl.careerForm.endEdu_{{$id}}.$valid == false && uCtrl.careerForm.endEdu_{{$id}}.$touched == true">*Introduce año de término</label>
-				<label class="text-error" 
-				ng-show="uCtrl.careerForm.endEdu_{{$id}}.$valid == false && uCtrl.careerForm.endEdu_{{$id}}.$touched == true">*No menor a año de inicio</label>
-				<label class="text-error" 
-				ng-show="uCtrl.careerForm.endEdu_{{$id}}.$error.pattern">*Sólo se permiten 4 números exactos</label>
-			</div>
-			<div class="col-2 col-lg-2"><!-- checar cuantas col usar -->
-				<span class="fa-stack minus-position" ng-click="deleteRow(candidate.profile.career.schoolGrades, n)" ng-show="isShowing($index)">
-				  <i class="fa fa-circle fa-stack-2x fa-color-pink-w"></i>
-				  <i class="fa fa-minus fa-stack-1x fa-inverse"></i>
-				</span>
-			</div>
-			<div class="col-2 col-lg-12">
-				<span class="fa-stack" ng-click="addProCareer(candidate.profile.career.schoolGrades)">
-				  <i class="fa fa-circle fa-stack-2x text-primary"></i>
-				  <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
-				</span>
-				<p style="display:inline-block;" class=""><small>Agregar grado educativo</small></p>
-			</div>
-			<div class="col-12"></div>
-			
+        <div class="row">
+          <div class="col-12 col-lg-3">
+            <label>Nivel educativo <span class="fa fa-asterisk" aria-hidden="true"></span></label>
+            <input name="scholarship_{{$id}}" class="form-control" type="text" id="scholarship" placeholder="Licenciatura"
+            ng-class="{'has-error': uCtrl.careerForm.scholarship_{{$id}}.$valid == false && uCtrl.careerForm.scholarship_{{$id}}.$touched == true}"
+            ng-model="candidate.profile.career.schoolGrades[$index].level" ng-pattern="/^[a-zA-Z_áéíóúñ\s]*$/" required>
+            <label class="text-error"
+            ng-show="uCtrl.careerForm.scholarship_{{$id}}.$valid == false && uCtrl.careerForm.scholarship_{{$id}}.$touched == true">*Introduce nivel educativo</label>
+            <label class="text-error"
+            ng-show="uCtrl.careerForm.scholarship_{{$id}}.$error.pattern">*Sólo se permiten letras</label>
+          </div>
+          <div class="col-12 col-lg-3">
+              <label for="institution">Institución <span class="fa fa-asterisk" aria-hidden="true"></span></label>
+              <input name="institution_{{$id}}" class="form-control" type="text"
+              id="institution"
+              ng-class="{'has-error': uCtrl.careerForm.institution_{{$id}}.$valid == false && uCtrl.careerForm.institution_{{$id}}.$touched == true}"
+              ng-model="candidate.profile.career.schoolGrades[$index].institute" ng-pattern="/^[a-zA-Z_áéíóúñ\s]*$/" required>
+              <label class="text-error"
+              ng-show="uCtrl.careerForm.institution_{{$id}}.$valid == false && uCtrl.careerForm.institution_{{$id}}.$touched == true">*Introduce institución</label>
+              <label class="text-error" ng-show="uCtrl.careerForm.institution.$error.pattern">*Sólo se permiten letras</label>
+          </div>
+          <div class="col-12 col-lg-2">
+              <label for="begin-year-nivel">Año de inicio<span class="fa fa-asterisk" aria-hidden="true"></span></label>
+              <input type="number" name="startEdu_{{$id}}" class="form-control" id="begin-year-nivel"
+              ng-model="candidate.profile.career.schoolGrades[$index].range.begin" ng-pattern="/^[0-9]{4}$/" min="1950" max="{{currentYear}}"
+              ng-class="{'has-error': uCtrl.careerForm.startEdu_{{$id}}.$valid == false && uCtrl.careerForm.startEdu_{{$id}}.$touched == true}" required>
+              <label class="text-error"
+              ng-show="uCtrl.careerForm.startEdu_{{$id}}.$valid == false && uCtrl.careerForm.startEdu_{{$id}}.$touched == true">*Introduce año de inicio</label>
+              <label class="text-error"
+              ng-show="uCtrl.careerForm.startEdu_{{$id}}.$error.pattern">*Sólo se permiten 4 números exactos</label>
+          </div>
+          <div class="col-12 col-lg-2">
+              <label for="end-year-nivel">Año de término <span class="fa fa-asterisk" aria-hidden="true"></span></label>
+              <input type="number" name="endEdu_{{$id}}" class="form-control"
+              id="end-year-nivel" placeholder=""
+              ng-model="candidate.profile.career.schoolGrades[$index].range.end" ng-pattern="/^[0-9]{4}$/" min="{{candidate.profile.career.schoolGrades[$index].range.begin}}"
+              max="{{currentYear}}"
+              ng-class="{'has-error': uCtrl.careerForm.endEdu_{{$id}}.$valid == false && uCtrl.careerForm.endEdu_{{$id}}.$touched == true}" required>
+              <label class="text-error"
+              ng-show="uCtrl.careerForm.endEdu_{{$id}}.$valid == false && uCtrl.careerForm.endEdu_{{$id}}.$touched == true">*Introduce año de término</label>
+              <label class="text-error"
+              ng-show="uCtrl.careerForm.endEdu_{{$id}}.$valid == false && uCtrl.careerForm.endEdu_{{$id}}.$touched == true">*No menor a año de inicio</label>
+              <label class="text-error"
+              ng-show="uCtrl.careerForm.endEdu_{{$id}}.$error.pattern">*Sólo se permiten 4 números exactos</label>
+          </div>
+          <div class="col-2 col-lg-2"><!-- checar cuantas col usar -->
+              <span class="fa-stack minus-position" ng-click="deleteRow(candidate.profile.career.schoolGrades, n)" ng-show="isShowing($index)">
+                <i class="fa fa-circle fa-stack-2x fa-color-pink-w"></i>
+                <i class="fa fa-minus fa-stack-1x fa-inverse"></i>
+              </span>
+          </div>
+          <div class="col-2 col-lg-12">
+              <span class="fa-stack" ng-click="addProCareer(candidate.profile.career.schoolGrades)">
+                <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+              </span>
+              <p style="display:inline-block;" class=""><small>Agregar grado educativo</small></p>
+          </div>
+          <div class="col-12"></div>
 
-			<!-- <legend class="ml-3">Escolaridad:</legend> -->
-			
-				<!-- <ng-form name="uCtrl.careerForm"> -->
 
-					<!-- <div ng-repeat="n in candidate.profile.career.schoolGrades"> -->
-						<div class="col-12 col-lg-3">
-							<label class="">Nivel educativo <span class="fa fa-asterisk req-asterisk sup" aria-hidden="true"></span></label>
-							<input name="scholarship_{{$id}}" class="form-control" type="text" id="scholarship" placeholder="Licenciatura" 
-								   ng-class="{'has-error': uCtrl.careerForm.scholarship_{{$id}}.$valid == false && uCtrl.careerForm.scholarship_{{$id}}.$touched == true}"
-								   ng-model="candidate.profile.career.schoolGrades[$index].level" ng-pattern="/^[a-zA-Z_áéíóúñ\s]*$/" required>
-						    <label class="text-error" 
-						  		   ng-show="uCtrl.careerForm.scholarship_{{$id}}.$valid == false && uCtrl.careerForm.scholarship_{{$id}}.$touched == true">*Introduce nivel educativo</label>
-							<label class="text-error" 
-								   ng-show="uCtrl.careerForm.scholarship_{{$id}}.$error.pattern">*Sólo se permiten letras</label>
-						</div>
-						
-						<div class="col-12 col-lg-3">
-							<label for="institution">Institución <span class="fa fa-asterisk" aria-hidden="true"></span></label>
-							<input name="institution_{{$id}}" class="form-control" type="text" id="institution" 
-								   ng-class="{'has-error': uCtrl.careerForm.institution_{{$id}}.$valid == false && uCtrl.careerForm.institution_{{$id}}.$touched == true}"
-								   ng-model="candidate.profile.career.schoolGrades[$index].institute" ng-pattern="/^[a-zA-Z_áéíóúñ\s]*$/" required>
-							<label class="text-error" 
-								   ng-show="uCtrl.careerForm.institution_{{$id}}.$valid == false && uCtrl.careerForm.institution_{{$id}}.$touched == true">*Introduce institución</label>
-							<label class="text-error" ng-show="uCtrl.careerForm.institution.$error.pattern">*Sólo se permiten letras</label>
-						</div>
-						
-						<div class="col-12 col-lg-2">
-							<label for="begin-year-nivel">Año de inicio<span class="fa fa-asterisk" aria-hidden="true"></span></label>
-							<input type="number" name="startEdu_{{$id}}" class="form-control" id="begin-year-nivel" placeholder="" 
-								   ng-model="candidate.profile.career.schoolGrades[$index].range.begin" ng-pattern="/^[0-9]{4}$/" min="1950" max="{{currentYear}}"
-								   ng-class="{'has-error': uCtrl.careerForm.startEdu_{{$id}}.$valid == false && uCtrl.careerForm.startEdu_{{$id}}.$touched == true}" required>
-							<label class="text-error" 
-								   ng-show="uCtrl.careerForm.startEdu_{{$id}}.$valid == false && uCtrl.careerForm.startEdu_{{$id}}.$touched == true">*Introduce año de inicio</label>
-							<label class="text-error" 
-								   ng-show="uCtrl.careerForm.startEdu_{{$id}}.$error.pattern">*Sólo se permiten 4 números exactos</label>
-						</div>
-						
-						<div class="col-12 col-lg-2">
-							<label for="end-year-nivel" class="">Año de término <span class="fa fa-asterisk req-asterisk sup" aria-hidden="true"></span></label>
-							<input type="number" name="endEdu_{{$id}}" class="form-control" id="end-year-nivel" placeholder="" 
-									ng-model="candidate.profile.career.schoolGrades[$index].range.end" ng-pattern="/^[0-9]{4}$/" min="{{candidate.profile.career.schoolGrades[$index].range.begin}}" 
-									max="{{currentYear}}" 
-									ng-class="{'has-error': uCtrl.careerForm.endEdu_{{$id}}.$valid == false && uCtrl.careerForm.endEdu_{{$id}}.$touched == true}" required>
-							<label class="text-error" 
-								   ng-show="uCtrl.careerForm.endEdu_{{$id}}.$valid == false && uCtrl.careerForm.endEdu_{{$id}}.$touched == true">*Introduce año de término</label>
-							<label class="text-error" 
-								   ng-show="uCtrl.careerForm.endEdu_{{$id}}.$valid == false && uCtrl.careerForm.endEdu_{{$id}}.$touched == true">*No menor a año de inicio</label>
-							<label class="text-error" 
-								   ng-show="uCtrl.careerForm.endEdu_{{$id}}.$error.pattern">*Sólo se permiten 4 números exactos</label>
-						</div>
-						
-						<div class="col-12 col-lg-2">
-							<span class="fa-stack" style="color: #f8255e;margin-top: 20px;" ng-click="deleteRow(candidate.profile.career.schoolGrades, n)" ng-show="isShowing($index)">
-							  <i class="fa fa-circle fa-stack-2x"></i>
-							  <i class="fa fa-minus fa-stack-1x fa-inverse"></i>
-							</span>
-						</div>
-						
-						<div class="col-lg-12"></div>
-					</div>
-					
-					<div class="col-12 col-lg-12">
-						<span class="fa-stack" style="color: #2b75e0" ng-click="addProCareer(candidate.profile.career.schoolGrades)">
-						  <i class="fa fa-circle fa-stack-2x"></i>
-						  <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
-						</span>
-						<p style="display:inline-block;" class=""><small>Agregar grado educativo</small></p>
-					</div>
-					
-					<legend class="ml-3">Certificaciones ó diplomados:</legend>
-					
-					<div ng-repeat="n in candidate.profile.career.certificate">
-					
-						<div class="col-xs-12 col-lg-3">
-							<label for="example-text-input">Título</label>
-							<input name="title_{{$id}}" class="form-control " type="text" id="example-text-input" ng-model="candidate.profile.career.certificate[$index].title"
-								   ng-class="{'has-error': uCtrl.careerForm.title_{{$id}}.$valid == false}" ng-pattern="/^[a-zA-Z_áéíóúñ0-9\s]*$/" ng-required="false">
-							<label class="text-error" 
-						  		   ng-show="uCtrl.careerForm.title_{{$id}}.$valid == false">*Introduce título</label>
-							<label class="text-error" 
-								   ng-show="uCtrl.careerForm.title_{{$id}}.$error.pattern">*Sólo se permiten letras</label>
-						</div>
-						
-						<div class="col-xs-12 col-lg-3">
-							<label for="example-text-input" >Institución que certifica</label>
-							<input name="institute_{{$id}}" class="form-control" type="text" id="example-text-input" ng-model="candidate.profile.career.certificate[$index].institute"
-								   ng-class="{'has-error': uCtrl.careerForm.institute_{{$id}}.$valid == false}" ng-pattern="/^[a-zA-Z_áéíóúñ\s]*$/">
-							<label class="text-error" 
-						  		   ng-show="uCtrl.careerForm.institute_{{$id}}.$valid == false">*Introduce institución</label>
-							<label class="text-error" 
-								   ng-show="uCtrl.careerForm.institute_{{$id}}.$error.pattern">*Sólo se permiten letras</label>
-						</div>
-						
-						<div class="col-xs-12 col-lg-2">
-							<label for="begin-year-nivel" >Año de inicio</label>
-							<input name="begin_{{$id}}" class="form-control" type="number" id="begin-year-nivel" ng-model="candidate.profile.career.certificate[$index].range.begin"
-								   ng-class="{'has-error': uCtrl.careerForm.begin_{{$id}}.$valid == false}" ng-pattern="/^[0-9]{4}$/" min="1950" max="{{currentYear}}">
-							<label class="text-error" 
-						  		   ng-show="uCtrl.careerForm.begin_{{$id}}.$valid == false">*Introduce año de inicio</label>
-							<label class="text-error" 
-								   ng-show="uCtrl.careerForm.begin_{{$id}}.$error.pattern">*Sólo se permiten 4 números exactos</label>
-						</div>
-						
-						<div class="col-xs-12 col-lg-2">
-							<label for="end-year-nivel" >Año de término</label>
-							<input name="end_{{$id}}" class="form-control" type="number" id="end-year-nivel" ng-model="candidate.profile.career.certificate[$index].range.end"
-								   ng-class="{'has-error': uCtrl.careerForm.end_{{$id}}.$valid == false}" ng-pattern="/^[0-9]{4}$/" 
-								   min="{{candidate.profile.career.certificate[$index].range.begin}}" max="{{currentYear}}">
-							<label class="text-error" 
-						  		   ng-show="uCtrl.careerForm.end_{{$id}}.$valid == false">*Introduce año de término</label>
-							<label class="text-error" 
-								   ng-show="uCtrl.careerForm.end_{{$id}}.$error.pattern">*Sólo se permiten 4 números exactos</label>
-						</div>
-						
-						<div class="col-xs-12 col-lg-2">
-							<span class="fa-stack" style="color: #f8255e;margin-top: 20px;" ng-click="deleteRow(candidate.profile.career.certificate, n)" ng-show="isShowing($index)">
-							  <i class="fa fa-circle fa-stack-2x"></i>
-							  <i class="fa fa-minus fa-stack-1x fa-inverse"></i>
-							</span>
-						</div>
-						
-						<div class="col-lg-12"></div>
-						
-					</div>
-					
-					<div class="col-lg-12">
-						<span class="fa-stack" style="color: #2b75e0" ng-click="addCertificates(candidate.profile.career.certificate)">
-							  <i class="fa fa-circle fa-stack-2x"></i>
-							  <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
-							</span>
-						<p style="display:inline-block;"><small>Agregar certificación</small></p>
-					</div>
-					
-					<div class="col-xs-12  col-lg-12 label-group"><strong>Objetivo profesional<span class="fa fa-asterisk req-asterisk sup" aria-hidden="true"></span></strong></div>
-					<div class="col-xs-12 col-lg-6">
-						<textarea class="form-control" name="proObjective" rows="4" id="comment" ng-model="candidate.profile.career.proObjective" 
-								  ng-class="{'has-error': uCtrl.careerForm.proObjective.$valid == false && uCtrl.careerForm.proObjective.$touched == true}" required></textarea>
-						<label class="text-error" ng-show="uCtrl.careerForm.proObjective.$valid == false && uCtrl.careerForm.proObjective.$touched == true">*Introduce un objetivo profesional</label>
-					</div>
-					<div class="col-xs-12 col-lg-6">
-						<p class="form__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam debitis quas maiores, labore numquam, optio minima libero consectetur ea dolorem officiis, repudiandae delectus eos, est ipsa. Dicta minus ex fuga.
-						</p>
-					</div>
-					
-					<div class="col-xs-12  col-lg-12">
-						<div class="checkbox">
-							
-							<label class="label-group fancy-checkbox" style="padding-left:0;font-size: 1em;">
-								<input type="checkbox" value="" name="firstjob" id="firstjob" ng-model="candidate.profile.career.firstjob">
-								<i class="fa fa-fw fa-square-o unchecked"></i>
-				    			<i class="fa fa-fw fa-check-square-o checked"></i>
-								Estoy en búsqueda de mi primera oportunidad
-							</label>  
-							
-							<p class="p-form" ng-show="candidate.profile.career.firstJob">Te recomendamos agregar tu experiencia relacionada a las actividades de la oportunidad que buscas. Cuentan prácticas profesionales,
-							servicio social, estadías, proyectos profesionales y tesis.</p>
-							    
-						</div>
-					</div>		
-					
-					<legend class="ml-3">Experiencia:</legend>
-					
-					<div ng-repeat="n in candidate.profile.career.proExperience">
-					
-						<div class="col-xs-12 col-lg-3">
-							<label for="example-text-input">Puesto o rol de trabajo</label>
-							<input name="jobPosition_{{$id}}" class="form-control" type="text" id="example-text-input" ng-model="candidate.profile.career.proExperience[$index].jobPosition"
-								   ng-class="{'has-error': uCtrl.careerForm.jobPosition_{{$id}}.$valid == false}" ng-pattern="/^[a-zA-Z_áéíóúñ\s]*$/">
-								   
-							<label class="text-error" 
-						  		   ng-show="uCtrl.careerForm.jobPosition_{{$id}}.$valid == false">*Introduce puesto</label>
-							<label class="text-error" 
-								   ng-show="uCtrl.careerForm.jobPosition_{{$id}}.$error.pattern">*Sólo se permiten letras</label>
-						</div>
-						
-						<div class="col-xs-12 col-lg-3">
-							<label for="example-text-input">Empresa o institución</label>
-							<input name="company_{{$id}}" class="form-control" type="text" id="example-text-input" ng-model="candidate.profile.career.proExperience[$index].company"
-								   ng-class="{'has-error': uCtrl.careerForm.company_{{$id}}.$valid == false}" ng-pattern="/^[a-zA-Z_áéíóúñ\s]*$/">
-							
-							<label class="text-error" 
-						  		   ng-show="uCtrl.careerForm.company_{{$id}}.$valid == false">*Introduce empresa</label>
-							<label class="text-error" 
-								   ng-show="uCtrl.careerForm.company_{{$id}}.$error.pattern">*Sólo se permiten letras</label>
-						</div>
-						
-						<div class="col-xs-12 col-lg-2">
-							<label for="begin-year-nivel">Año de inicio</label>
-							<input name="beginExp_{{$id}}" class="form-control" type="number" id="begin-year-nivel" ng-model="candidate.profile.career.proExperience[$index].range.begin"
-								   ng-class="{'has-error': uCtrl.careerForm.beginExp_{{$id}}.$valid == false}" ng-pattern="/^[0-9]{4}$/" min="1950" max="{{currentYear}}">
-								   
-							<label class="text-error" 
-						  		   ng-show="uCtrl.careerForm.beginExp_{{$id}}.$valid == false">*Introduce año de inicio</label>
-							<label class="text-error" 
-								   ng-show="uCtrl.careerForm.beginExp_{{$id}}.$error.pattern">*Sólo se permiten 4 números exactos</label>
-						</div>
-						
-						<div class="col-xs-12 col-lg-2">
-							<label for="end-year-nivel">Año de término</label>
-							<input name="endExp_{{$id}}" class="form-control" type="number" id="end-year-nivel" ng-model="candidate.profile.career.proExperience[$index].range.end"
-								   ng-class="{'has-error': uCtrl.careerForm.endExp_{{$id}}.$valid == false}" ng-pattern="/^[0-9]{4}$/" 
-								   min="{{candidate.profile.career.proExperience[$index].range.begin}}" max="{{currentYear}}">
-							
-							<label class="text-error" 
-						  		   ng-show="uCtrl.careerForm.endExp_{{$id}}.$valid == false">*Introduce año de término</label>
-							<label class="text-error" 
-								   ng-show="uCtrl.careerForm.endExp_{{$id}}.$error.pattern">*Sólo se permiten 4 números exactos</label>
-						</div>
-						
-						<div class="col-xs-12 col-lg-2 pr0"> <!-- pl0 -->
-							
-							<label class="fancy-checkbox">
-								<input type="checkbox" value="" name="current" id="current" ng-model="candidate.profile.career.proExperience[$index].current">
-								<i class="fa fa-fw fa-square-o unchecked"></i>
-				    			<i class="fa fa-fw fa-check-square-o checked"></i>
-								Laboro actualmente aquí
-							</label> 
-							
-						</div>
-						
-						<div class="col-lg-12"></div>
-						
-						<div class="col-xs-12 col-lg-6">
-							<label>Actividades desempeñadas</label>
-							<textarea name="activity_{{$id}}" class="form-control" id="comment" ng-model="candidate.profile.career.proExperience[$index].activities"
-									  ng-class="{'has-error': uCtrl.careerForm.activity_{{$id}}.$valid == false}" ng-pattern="/^[a-zA-Z_áéíóúñ\.\s]*$/"></textarea>
-									  
-							<label class="text-error" 
-						  		   ng-show="uCtrl.careerForm.activity_{{$id}}.$valid == false">*Introduce puesto</label>
-							<label class="text-error" 
-								   ng-show="uCtrl.careerForm.activity_{{$id}}.$error.pattern">*Sólo se permiten letras</label>
-						</div>
-						
-						<div class="col-xs-12 col-lg-6">
-							<span class="fa-stack" style="color: #f8255e;margin-top: 20px;" ng-click="deleteRow(candidate.profile.career.proExperience, n)" ng-show="isShowing($index)">
-							  <i class="fa fa-circle fa-stack-2x"></i>
-							  <i class="fa fa-minus fa-stack-1x fa-inverse"></i>
-							</span>
-						</div>
-						
-						<div class="col-lg-12"></div>
-						
-					</div>
-					
-					
-					<div class="col-lg-12" ng-click="addExperience(candidate.profile.career.proExperience)">
-						<span class="fa-stack" style="color: #2b75e0">
-						  <i class="fa fa-circle fa-stack-2x"></i>
-						  <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
-						</span>
-						<p style="display:inline-block;"><small>Agregar experiencia</small></p>
-					</div>
-					
-					
-							
-					<legend class="ml-3">Tu oportunidad ideal (opcional):</legend>
-					<div class="col-xs-12 col-lg-3">
-						<label for="example-text-input">Área de especialización</label>
-						<select class="form-control" type="" id="example-text-input" 
-								ng-model="candidate.profile.career.iOportunity.area" ng-change="changeArea()"
-								ng-options="area.area for area in areas track by area.id">
-						</select>
-					</div>	
-					<div class="col-lg-3">
-						<label for="example-text-input">Puesto o cargo</label>
-						<select class="form-control" id="example-text-input" 
-								ng-options="jobPostion.name for jobPostion in jobPostions track by jobPostion.id"
-								ng-model="candidate.profile.career.iOportunity.jobPosition">
-						</select>
-					</div>
-					<div class="col-xs-12 col-lg-3">
-						<label for="example-text-input">Rango de sueldo deseado</label>
-						<select class="form-control" id="example-text-input" ng-model="candidate.profile.career.iOportunity.salaryRange">
-						   	<option value="5000-10000">$5,000-$10,000</option>
-						   	<option value="10000-15000">$10,000-$15,000</option>
-						   	<option value="15000-20000">$15,000-$20,000</option>
-						   	<option value="20000-25000">$20,000-$25,000</option>
-						   	<option value="25000-30000">$25,000-$30,000</option>
-						   	<option value="30000-35000">$30,000-$35,000</option>
-						</select>
-					</div>
-					<div class="col-xs-12 col-lg-3">
-						<label for="example-text-input">Modalidad</label>
-						<select class="form-control" type="" id="example-text-input" ng-model="candidate.profile.career.iOportunity.jobMode">
-						   	<option>Tiempo completo</option>
-						   	<option>Medio Tiempo</option>
-						   	<option>Freelance</option>
-						</select>
-					</div>		
-					<div class="col-xs-12 col-lg-12">  
-						
-						<div class="checkbox">
-							<label class="label-group fancy-checkbox" style="padding-left:0;font-size: 1em;">
-								<input type="checkbox" value="" name="relocate" id="relocate" ng-model="candidate.profile.career.relocation">
-								<i class="fa fa-fw fa-square-o unchecked"></i>
-				    			<i class="fa fa-fw fa-check-square-o checked"></i>
-								Estoy dispuesto a reubicarme
-							</label>    
-						</div>
-						
-					<!-- </div> -->
-				<!-- </ng-form> -->
-  	
-		</div><!-- en row career -->
-	</div><!-- end container career -->
+            <!-- <legend class="ml-3">Escolaridad:</legend> -->
+
+                <!-- <ng-form name="uCtrl.careerForm"> -->
+
+                    <!-- <div ng-repeat="n in candidate.profile.career.schoolGrades"> -->
+                        <div class="col-12 col-lg-3">
+                            <label class="">Nivel educativo <span class="fa fa-asterisk req-asterisk sup" aria-hidden="true"></span></label>
+                            <input name="scholarship_{{$id}}" class="form-control" type="text" id="scholarship" placeholder="Licenciatura"
+                                   ng-class="{'has-error': uCtrl.careerForm.scholarship_{{$id}}.$valid == false && uCtrl.careerForm.scholarship_{{$id}}.$touched == true}"
+                                   ng-model="candidate.profile.career.schoolGrades[$index].level" ng-pattern="/^[a-zA-Z_áéíóúñ\s]*$/" required>
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.scholarship_{{$id}}.$valid == false && uCtrl.careerForm.scholarship_{{$id}}.$touched == true">*Introduce nivel educativo</label>
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.scholarship_{{$id}}.$error.pattern">*Sólo se permiten letras</label>
+                        </div>
+
+                        <div class="col-12 col-lg-3">
+                            <label for="institution">Institución <span class="fa fa-asterisk" aria-hidden="true"></span></label>
+                            <input name="institution_{{$id}}" class="form-control" type="text" id="institution"
+                                   ng-class="{'has-error': uCtrl.careerForm.institution_{{$id}}.$valid == false && uCtrl.careerForm.institution_{{$id}}.$touched == true}"
+                                   ng-model="candidate.profile.career.schoolGrades[$index].institute" ng-pattern="/^[a-zA-Z_áéíóúñ\s]*$/" required>
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.institution_{{$id}}.$valid == false && uCtrl.careerForm.institution_{{$id}}.$touched == true">*Introduce institución</label>
+                            <label class="text-error" ng-show="uCtrl.careerForm.institution.$error.pattern">*Sólo se permiten letras</label>
+                        </div>
+
+                        <div class="col-12 col-lg-2">
+                            <label for="begin-year-nivel">Año de inicio<span class="fa fa-asterisk" aria-hidden="true"></span></label>
+                            <input type="number" name="startEdu_{{$id}}" class="form-control" id="begin-year-nivel" placeholder=""
+                                   ng-model="candidate.profile.career.schoolGrades[$index].range.begin" ng-pattern="/^[0-9]{4}$/" min="1950" max="{{currentYear}}"
+                                   ng-class="{'has-error': uCtrl.careerForm.startEdu_{{$id}}.$valid == false && uCtrl.careerForm.startEdu_{{$id}}.$touched == true}" required>
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.startEdu_{{$id}}.$valid == false && uCtrl.careerForm.startEdu_{{$id}}.$touched == true">*Introduce año de inicio</label>
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.startEdu_{{$id}}.$error.pattern">*Sólo se permiten 4 números exactos</label>
+                        </div>
+
+                        <div class="col-12 col-lg-2">
+                            <label for="end-year-nivel" class="">Año de término <span class="fa fa-asterisk req-asterisk sup" aria-hidden="true"></span></label>
+                            <input type="number" name="endEdu_{{$id}}" class="form-control" id="end-year-nivel" placeholder=""
+                                    ng-model="candidate.profile.career.schoolGrades[$index].range.end" ng-pattern="/^[0-9]{4}$/" min="{{candidate.profile.career.schoolGrades[$index].range.begin}}"
+                                    max="{{currentYear}}"
+                                    ng-class="{'has-error': uCtrl.careerForm.endEdu_{{$id}}.$valid == false && uCtrl.careerForm.endEdu_{{$id}}.$touched == true}" required>
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.endEdu_{{$id}}.$valid == false && uCtrl.careerForm.endEdu_{{$id}}.$touched == true">*Introduce año de término</label>
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.endEdu_{{$id}}.$valid == false && uCtrl.careerForm.endEdu_{{$id}}.$touched == true">*No menor a año de inicio</label>
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.endEdu_{{$id}}.$error.pattern">*Sólo se permiten 4 números exactos</label>
+                        </div>
+
+                        <div class="col-12 col-lg-2">
+                            <span class="fa-stack" style="color: #f8255e;margin-top: 20px;" ng-click="deleteRow(candidate.profile.career.schoolGrades, n)" ng-show="isShowing($index)">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa fa-minus fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </div>
+
+                        <div class="col-lg-12"></div>
+                    </div>
+
+                    <div class="col-12 col-lg-12">
+                        <span class="fa-stack" style="color: #2b75e0" ng-click="addProCareer(candidate.profile.career.schoolGrades)">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <p style="display:inline-block;" class=""><small>Agregar grado educativo</small></p>
+                    </div>
+
+                    <legend class="ml-3">Certificaciones ó diplomados:</legend>
+
+                    <div ng-repeat="n in candidate.profile.career.certificate">
+
+                        <div class="col-xs-12 col-lg-3">
+                            <label for="example-text-input">Título</label>
+                            <input name="title_{{$id}}" class="form-control " type="text" id="example-text-input" ng-model="candidate.profile.career.certificate[$index].title"
+                                   ng-class="{'has-error': uCtrl.careerForm.title_{{$id}}.$valid == false}" ng-pattern="/^[a-zA-Z_áéíóúñ0-9\s]*$/" ng-required="false">
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.title_{{$id}}.$valid == false">*Introduce título</label>
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.title_{{$id}}.$error.pattern">*Sólo se permiten letras</label>
+                        </div>
+
+                        <div class="col-xs-12 col-lg-3">
+                            <label for="example-text-input" >Institución que certifica</label>
+                            <input name="institute_{{$id}}" class="form-control" type="text" id="example-text-input" ng-model="candidate.profile.career.certificate[$index].institute"
+                                   ng-class="{'has-error': uCtrl.careerForm.institute_{{$id}}.$valid == false}" ng-pattern="/^[a-zA-Z_áéíóúñ\s]*$/">
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.institute_{{$id}}.$valid == false">*Introduce institución</label>
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.institute_{{$id}}.$error.pattern">*Sólo se permiten letras</label>
+                        </div>
+
+                        <div class="col-xs-12 col-lg-2">
+                            <label for="begin-year-nivel" >Año de inicio</label>
+                            <input name="begin_{{$id}}" class="form-control" type="number" id="begin-year-nivel" ng-model="candidate.profile.career.certificate[$index].range.begin"
+                                   ng-class="{'has-error': uCtrl.careerForm.begin_{{$id}}.$valid == false}" ng-pattern="/^[0-9]{4}$/" min="1950" max="{{currentYear}}">
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.begin_{{$id}}.$valid == false">*Introduce año de inicio</label>
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.begin_{{$id}}.$error.pattern">*Sólo se permiten 4 números exactos</label>
+                        </div>
+
+                        <div class="col-xs-12 col-lg-2">
+                            <label for="end-year-nivel" >Año de término</label>
+                            <input name="end_{{$id}}" class="form-control" type="number" id="end-year-nivel" ng-model="candidate.profile.career.certificate[$index].range.end"
+                                   ng-class="{'has-error': uCtrl.careerForm.end_{{$id}}.$valid == false}" ng-pattern="/^[0-9]{4}$/"
+                                   min="{{candidate.profile.career.certificate[$index].range.begin}}" max="{{currentYear}}">
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.end_{{$id}}.$valid == false">*Introduce año de término</label>
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.end_{{$id}}.$error.pattern">*Sólo se permiten 4 números exactos</label>
+                        </div>
+
+                        <div class="col-xs-12 col-lg-2">
+                            <span class="fa-stack" style="color: #f8255e;margin-top: 20px;" ng-click="deleteRow(candidate.profile.career.certificate, n)" ng-show="isShowing($index)">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa fa-minus fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </div>
+
+                        <div class="col-lg-12"></div>
+
+                    </div>
+
+                    <div class="col-lg-12">
+                        <span class="fa-stack" style="color: #2b75e0" ng-click="addCertificates(candidate.profile.career.certificate)">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+                            </span>
+                        <p style="display:inline-block;"><small>Agregar certificación</small></p>
+                    </div>
+
+                    <div class="col-xs-12  col-lg-12 label-group"><strong>Objetivo profesional<span class="fa fa-asterisk req-asterisk sup" aria-hidden="true"></span></strong></div>
+                    <div class="col-xs-12 col-lg-6">
+                        <textarea class="form-control" name="proObjective" rows="4" id="comment" ng-model="candidate.profile.career.proObjective"
+                                  ng-class="{'has-error': uCtrl.careerForm.proObjective.$valid == false && uCtrl.careerForm.proObjective.$touched == true}" required></textarea>
+                        <label class="text-error" ng-show="uCtrl.careerForm.proObjective.$valid == false && uCtrl.careerForm.proObjective.$touched == true">*Introduce un objetivo profesional</label>
+                    </div>
+                    <div class="col-xs-12 col-lg-6">
+                        <p class="form__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam debitis quas maiores, labore numquam, optio minima libero consectetur ea dolorem officiis, repudiandae delectus eos, est ipsa. Dicta minus ex fuga.
+                        </p>
+                    </div>
+
+                    <div class="col-xs-12  col-lg-12">
+                        <div class="checkbox">
+
+                            <label class="label-group fancy-checkbox" style="padding-left:0;font-size: 1em;">
+                                <input type="checkbox" value="" name="firstjob" id="firstjob" ng-model="candidate.profile.career.firstjob">
+                                <i class="fa fa-fw fa-square-o unchecked"></i>
+                                <i class="fa fa-fw fa-check-square-o checked"></i>
+                                Estoy en búsqueda de mi primera oportunidad
+                            </label>
+
+                            <p class="p-form" ng-show="candidate.profile.career.firstJob">Te recomendamos agregar tu experiencia relacionada a las actividades de la oportunidad que buscas. Cuentan prácticas profesionales,
+                            servicio social, estadías, proyectos profesionales y tesis.</p>
+
+                        </div>
+                    </div>
+
+                    <legend class="ml-3">Experiencia:</legend>
+
+                    <div ng-repeat="n in candidate.profile.career.proExperience">
+
+                        <div class="col-xs-12 col-lg-3">
+                            <label for="example-text-input">Puesto o rol de trabajo</label>
+                            <input name="jobPosition_{{$id}}" class="form-control" type="text" id="example-text-input" ng-model="candidate.profile.career.proExperience[$index].jobPosition"
+                                   ng-class="{'has-error': uCtrl.careerForm.jobPosition_{{$id}}.$valid == false}" ng-pattern="/^[a-zA-Z_áéíóúñ\s]*$/">
+
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.jobPosition_{{$id}}.$valid == false">*Introduce puesto</label>
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.jobPosition_{{$id}}.$error.pattern">*Sólo se permiten letras</label>
+                        </div>
+
+                        <div class="col-xs-12 col-lg-3">
+                            <label for="example-text-input">Empresa o institución</label>
+                            <input name="company_{{$id}}" class="form-control" type="text" id="example-text-input" ng-model="candidate.profile.career.proExperience[$index].company"
+                                   ng-class="{'has-error': uCtrl.careerForm.company_{{$id}}.$valid == false}" ng-pattern="/^[a-zA-Z_áéíóúñ\s]*$/">
+
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.company_{{$id}}.$valid == false">*Introduce empresa</label>
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.company_{{$id}}.$error.pattern">*Sólo se permiten letras</label>
+                        </div>
+
+                        <div class="col-xs-12 col-lg-2">
+                            <label for="begin-year-nivel">Año de inicio</label>
+                            <input name="beginExp_{{$id}}" class="form-control" type="number" id="begin-year-nivel" ng-model="candidate.profile.career.proExperience[$index].range.begin"
+                                   ng-class="{'has-error': uCtrl.careerForm.beginExp_{{$id}}.$valid == false}" ng-pattern="/^[0-9]{4}$/" min="1950" max="{{currentYear}}">
+
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.beginExp_{{$id}}.$valid == false">*Introduce año de inicio</label>
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.beginExp_{{$id}}.$error.pattern">*Sólo se permiten 4 números exactos</label>
+                        </div>
+
+                        <div class="col-xs-12 col-lg-2">
+                            <label for="end-year-nivel">Año de término</label>
+                            <input name="endExp_{{$id}}" class="form-control" type="number" id="end-year-nivel" ng-model="candidate.profile.career.proExperience[$index].range.end"
+                                   ng-class="{'has-error': uCtrl.careerForm.endExp_{{$id}}.$valid == false}" ng-pattern="/^[0-9]{4}$/"
+                                   min="{{candidate.profile.career.proExperience[$index].range.begin}}" max="{{currentYear}}">
+
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.endExp_{{$id}}.$valid == false">*Introduce año de término</label>
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.endExp_{{$id}}.$error.pattern">*Sólo se permiten 4 números exactos</label>
+                        </div>
+
+                        <div class="col-xs-12 col-lg-2 pr0"> <!-- pl0 -->
+
+                            <label class="fancy-checkbox">
+                                <input type="checkbox" value="" name="current" id="current" ng-model="candidate.profile.career.proExperience[$index].current">
+                                <i class="fa fa-fw fa-square-o unchecked"></i>
+                                <i class="fa fa-fw fa-check-square-o checked"></i>
+                                Laboro actualmente aquí
+                            </label>
+
+                        </div>
+
+                        <div class="col-lg-12"></div>
+
+                        <div class="col-xs-12 col-lg-6">
+                            <label>Actividades desempeñadas</label>
+                            <textarea name="activity_{{$id}}" class="form-control" id="comment" ng-model="candidate.profile.career.proExperience[$index].activities"
+                                      ng-class="{'has-error': uCtrl.careerForm.activity_{{$id}}.$valid == false}" ng-pattern="/^[a-zA-Z_áéíóúñ\.\s]*$/"></textarea>
+
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.activity_{{$id}}.$valid == false">*Introduce puesto</label>
+                            <label class="text-error"
+                                   ng-show="uCtrl.careerForm.activity_{{$id}}.$error.pattern">*Sólo se permiten letras</label>
+                        </div>
+
+                        <div class="col-xs-12 col-lg-6">
+                            <span class="fa-stack" style="color: #f8255e;margin-top: 20px;" ng-click="deleteRow(candidate.profile.career.proExperience, n)" ng-show="isShowing($index)">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa fa-minus fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </div>
+
+                        <div class="col-lg-12"></div>
+
+                    </div>
+
+
+                    <div class="col-lg-12" ng-click="addExperience(candidate.profile.career.proExperience)">
+                        <span class="fa-stack" style="color: #2b75e0">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <p style="display:inline-block;"><small>Agregar experiencia</small></p>
+                    </div>
+
+
+
+                    <legend class="ml-3">Tu oportunidad ideal (opcional):</legend>
+                    <div class="col-xs-12 col-lg-3">
+                        <label for="example-text-input">Área de especialización</label>
+                        <select class="form-control" type="" id="example-text-input"
+                                ng-model="candidate.profile.career.iOportunity.area" ng-change="changeArea()"
+                                ng-options="area.area for area in areas track by area.id">
+                        </select>
+                    </div>
+                    <div class="col-lg-3">
+                        <label for="example-text-input">Puesto o cargo</label>
+                        <select class="form-control" id="example-text-input"
+                                ng-options="jobPostion.name for jobPostion in jobPostions track by jobPostion.id"
+                                ng-model="candidate.profile.career.iOportunity.jobPosition">
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-lg-3">
+                        <label for="example-text-input">Rango de sueldo deseado</label>
+                        <select class="form-control" id="example-text-input" ng-model="candidate.profile.career.iOportunity.salaryRange">
+                            <option value="5000-10000">$5,000-$10,000</option>
+                            <option value="10000-15000">$10,000-$15,000</option>
+                            <option value="15000-20000">$15,000-$20,000</option>
+                            <option value="20000-25000">$20,000-$25,000</option>
+                            <option value="25000-30000">$25,000-$30,000</option>
+                            <option value="30000-35000">$30,000-$35,000</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-lg-3">
+                        <label for="example-text-input">Modalidad</label>
+                        <select class="form-control" type="" id="example-text-input" ng-model="candidate.profile.career.iOportunity.jobMode">
+                            <option>Tiempo completo</option>
+                            <option>Medio Tiempo</option>
+                            <option>Freelance</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-lg-12">
+
+                        <div class="checkbox">
+                            <label class="label-group fancy-checkbox" style="padding-left:0;font-size: 1em;">
+                                <input type="checkbox" value="" name="relocate" id="relocate" ng-model="candidate.profile.career.relocation">
+                                <i class="fa fa-fw fa-square-o unchecked"></i>
+                                <i class="fa fa-fw fa-check-square-o checked"></i>
+                                Estoy dispuesto a reubicarme
+                            </label>
+                        </div>
+
+                    <!-- </div> -->
+                <!-- </ng-form> -->
+
+        </div><!-- en row career -->
+    </div><!-- end container career -->
 </body>
 </html>

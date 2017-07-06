@@ -8,6 +8,8 @@
   border-width: 2px; 
 }
 .btn-x-circle {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 	border-radius: 20px;
 }
 .net-social {
@@ -42,3 +44,24 @@
 	position: relative;
 	top: 1.5rem;
 }
+
+
+// link 
+.login__link:focus, .login__link:hover {
+    color: #282828;
+    text-decoration: none;
+    font-weight: bold;
+} 
+.little-link {
+    color: #282828;
+    text-decoration: underline;
+    &:focus, &:hover {
+        color: #252525;
+        font-weight: bold;
+    }
+}
+/*.little-link:focus, 
+.little-link:hover {
+    color: #252525;
+    font-weight: bold;
+}*/

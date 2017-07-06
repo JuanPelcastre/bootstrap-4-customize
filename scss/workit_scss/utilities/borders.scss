@@ -8,6 +8,9 @@
 .btn-border-crcle {
 	border-radius: 1rem;
 }
+.border-bottom {
+    border-bottom: 7px solid $yellow-w//#ded600;
+}
 .mb-sm-down {
 	@media (max-width: 991px) {
 		margin-bottom: 1rem;
